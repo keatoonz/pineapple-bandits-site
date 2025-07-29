@@ -1,0 +1,33 @@
+---
+layout: default
+title: Merch
+permalink: /merch/
+---
+
+<section class="section merch-section">
+  <div class="container">
+    <h1 class="page-title glitch-text" data-text="Merch">Merch</h1>
+    <p class="link-out-text">Shop our merch via BigCartel:</p>
+    <a href="https://pineapplebandits.bigcartel.com" class="merch-btn glitch-text" target="_blank">Visit Store</a>
+
+    <div class="merch-grid">
+      <!-- Placeholder Product 1 -->
+      <div class="merch-card">
+        <img src="/assets/images/placeholder-shirt1.png" alt="T-shirt Placeholder">
+        <h3 class="product-title">Logo Tee</h3>
+      </div>
+
+      <!-- Placeholder Product 2 -->
+      <div class="merch-card">
+        <img src="/assets/images/placeholder-hoodie1.png" alt="Hoodie Placeholder">
+        <h3 class="product-title">Distorted Hoodie</h3>
+      </div>
+
+      <!-- Placeholder Product 3 -->
+      <div class="merch-card">
+        <img src="/assets/images/placeholder-hat1.png" alt="Cap Placeholder">
+        <h3 class="product-title">Pineapple Cap</h3>
+      </div>
+    </div>
+  </div>
+</section>
