@@ -1,31 +1,53 @@
----
-layout: default
-title: Contact / Newsletter
-permalink: /contact/
----
-
-<section class="section contact-section">
-  <div class="container">
-    <h1 class="page-title glitch-text" data-text="Contact">Contact</h1>
-    <p class="intro-text">Reach out for bookings, press, or just to say hey. Subscribe to get updates first.</p>
-
-    <div class="form-grid">
-      <!-- Contact Form -->
-      <form action="https://formspree.io/f/xzzvgonp" method="POST" class="form-box">
-        <h3>Contact Us</h3>
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="_replyto" placeholder="Your Email" required>
-        <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
-        <button type="submit" class="glitch-button">Send</button>
-      </form>
-
-      <!-- Newsletter Signup -->
-      <form action="#" method="POST" class="form-box">
-        <h3>Newsletter</h3>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <button type="submit" class="glitch-button">Subscribe</button>
-        <p class="note-text">We’ll only email when it matters.</p>
-      </form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact / Newsletter | Pineapple Bandits</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/glitch-loader.css">
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&display=swap" rel="stylesheet">
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/glitch-loader.js" defer></script>
+</head>
+<body>
+  <!-- Glitch Loader Start -->
+  <div id="glitch-loader">
+    <div class="crt-overlay"></div>
+    <div class="logo-flicker">
+      <img src="assets/images/logos/main-logo.png" alt="Band Logo" />
+      <img src="assets/images/logos/alt1.png" alt="Flicker 1" />
+      <img src="assets/images/logos/alt2.png" alt="Flicker 2" />
+      <img src="assets/images/logos/alt3.png" alt="Flicker 3" />
+      <img src="assets/images/logos/alt4.png" alt="Flicker 4" />
     </div>
   </div>
-</section>
+  <!-- Glitch Loader End -->
+
+  <section class="section contact-section">
+    <div class="container">
+      <h1 class="page-title glitch-text" data-text="Contact">Contact</h1>
+      <p class="intro-text">Reach out for bookings, press, or just to say hey. Subscribe to get updates first.</p>
+
+      <div class="form-grid">
+        <!-- Contact Form -->
+        <form action="https://formspree.io/f/xzzvgonp" method="POST" class="form-box">
+          <h3>Contact Us</h3>
+          <input type="text" name="name" placeholder="Your Name" required>
+          <input type="email" name="_replyto" placeholder="Your Email" required>
+          <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
+          <button type="submit" class="glitch-button">Send</button>
+        </form>
+
+        <!-- Newsletter Signup -->
+        <form action="#" method="POST" class="form-box">
+          <h3>Newsletter</h3>
+          <input type="email" name="email" placeholder="Your Email" required>
+          <button type="submit" class="glitch-button">Subscribe</button>
+          <p class="note-text">We’ll only email when it matters.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
