@@ -20,6 +20,12 @@ body {
   overflow-x: hidden;
 }
 
+body.no-scroll {
+  overflow: hidden !important;
+  height: 100vh;
+  width: 100vw;
+}
+
 a {
   color: #f0f0f0;
   text-decoration: none;
