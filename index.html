@@ -8,10 +8,10 @@
   <meta name="Generator" content="Cocoa HTML Writer">
   <meta name="CocoaVersion" content="2575.6">
   <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/glitch-loader.css">
+  <!-- Removed glitch-loader.css reference, not needed -->
   <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&display=swap" rel="stylesheet">
   <script src="assets/js/main.js" defer></script>
-  <script src="assets/js/glitch-loader.js" defer></script>
+  <!-- Removed glitch-loader.js reference, not needed -->
   <style>
     * {
       margin: 0;
@@ -94,14 +94,14 @@
   </style>
 </head>
 <body>
-
   <div id="glitch-loader">
     <div id="crt-noise-loader"></div>
+    <img id="loader-logo" src="assets/logos/main-logo.png" alt="Loading..." />
     <!-- loader content here -->
   </div> 
 
-  <!-- Pink noise overlay: Add this immediately after your loader, before main content -->
- <!-- <div id="crt-noise-overlay"></div> -->
+  <!-- Pink noise overlay goes right after loader, before main content -->
+  <div id="crt-noise-overlay"></div>
 
   <div class="container">
     <img class="logo" src="assets/logos/main-logo.png" alt="Pineapple Bandits Logo" />
