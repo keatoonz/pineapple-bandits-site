@@ -119,6 +119,7 @@ header img {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 #glitch-loader img {
@@ -142,10 +143,10 @@ header img {
 /* Loader Overlay: green noise */
 #crt-noise-loader {
   position: absolute;
-  z-index: 10;
+  z-index: 10000;
   top: 0; left: 0; width: 100%; height: 100%;
   pointer-events: none;
-  opacity: 1; /* Medium intensity */
+  opacity: 0.5; /* Medium intensity */
   mix-blend-mode: multiply;
   background: red;
   background-repeat: repeat;
