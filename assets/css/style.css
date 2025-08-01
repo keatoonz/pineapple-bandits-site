@@ -170,3 +170,8 @@ header img {
   0% { background-position: 0 0; }
   100% { background-position: 100px 100px; }
 }
+
+#crt-noise-loader, #crt-noise-overlay {
+  opacity: 0.5 !important; /* Increase visibility */
+  background: url('assets/images/green-noise.png') !important;
+}
