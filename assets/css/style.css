@@ -153,7 +153,7 @@ header img {
   pointer-events: none;
   opacity: 0.18; /* Medium intensity */
  /* mix-blend-mode: multiply; */
-  background: url('assets/images/green-noise.png');
+  background: url('../images/green-noise.png');
   background-repeat: repeat;
   animation: noise-move 4s linear infinite;
 }
@@ -166,7 +166,7 @@ header img {
   pointer-events: none;
   opacity: 1; /* Barely visible */
   mix-blend-mode: multiply;
-  background: url('assets/images/pink-noise.png');
+  background: url('../images/pink-noise.png');
   background-repeat: repeat;
   animation: noise-move 5s linear infinite;
 }
