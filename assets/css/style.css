@@ -145,9 +145,9 @@ header img {
   z-index: 10;
   top: 0; left: 0; width: 100%; height: 100%;
   pointer-events: none;
-  opacity: 0.18; /* Medium intensity */
+  opacity: 1; /* Medium intensity */
   mix-blend-mode: multiply;
-  background: url('assets/images/green-noise.png');
+  background: red;
   background-repeat: repeat;
   animation: noise-move 4s linear infinite;
 }
@@ -158,9 +158,9 @@ header img {
   z-index: 9999;
   top: 0; left: 0; width: 100vw; height: 100vh;
   pointer-events: none;
-  opacity: 0.08; /* Barely visible */
+  opacity: 1; /* Barely visible */
   mix-blend-mode: multiply;
-  background: url('assets/images/pink-noise.png');
+  background: red;
   background-repeat: repeat;
   animation: noise-move 5s linear infinite;
 }
