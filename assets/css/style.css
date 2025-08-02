@@ -168,7 +168,7 @@ header img {
   pointer-events: none;
   opacity: 0.18; /* Medium intensity */
   mix-blend-mode: multiply; 
-  background-color: green !important;
+  background: url('../images/green-noise.png');
   background-repeat: repeat;
   animation: noise-move 4s linear infinite;
 }
