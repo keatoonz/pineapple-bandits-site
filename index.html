@@ -6,7 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pineapple Bandits</title>
   <link rel="stylesheet" href="assets/css/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&display=swap" rel="stylesheet">
+<!-- Pixel font: Press Start 2P -->
+<link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
   <script src="assets/js/main.js" defer></script>
 </head>
 <body>
@@ -15,6 +16,8 @@
     <div id="crt-noise-loader"></div>
     <img id="loader-logo" src="assets/logos/main-logo.png" alt="Loading..." />
   </div>
+
+  <script src="assets/js/crt-transition.js"></script>
   
 <div class="crt-frame">
   <div class="crt-corner tl"></div>
@@ -22,20 +25,25 @@
   <div class="crt-corner bl"></div>
   <div class="crt-corner br"></div>
 </div>
+  <div class="crt-scanlines"></div>
   <!-- Pink noise overlay (hidden by default) -->
   <div id="crt-noise-overlay"></div>
-
+  
+<div id="crt-collapse"></div>
+  
   <!-- Main Content -->
   <div class="container">
     <img class="logo" src="assets/logos/main-logo.png" alt="Pineapple Bandits Logo" />
     <p class="tagline">Glitch-pop meets chaos-core. Welcome to our mess.</p>
-    <div class="nav">
-      <a href="bio.html">Bio</a>
-      <a href="music.html">Music</a>
-      <a href="tour.html">Tour</a>
-      <a href="merch.html">Merch</a>
-      <a href="contact.html">Contact</a>
-    </div>
+   <nav class="ps1-nav" aria-label="Main menu">
+  <ul>
+    <li><a href="bio.html" class="menu-btn">Bio</a></li>
+    <li><a href="music.html" class="menu-btn">Music</a></li>
+    <li><a href="shows.html" class="menu-btn">Shows</a></li>
+    <li><a href="media.html" class="menu-btn">Media</a></li>
+    <li><a href="contact.html" class="menu-btn">Contact</a></li>
+  </ul>
+</nav>
   </div>
   <div class="bg"></div>
   <div class="easter-egg" onclick="alert('You found the hidden pineapple 🍍')">
