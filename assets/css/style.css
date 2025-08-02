@@ -20,6 +20,9 @@ a, a:visited {
 a:hover {
   cursor: url('../images/cursor2.png'), pointer;
 }
+* {
+  cursor: url('../images/cursor2.png'), pointer !important;
+}
 /* Main layout */
 .container {
   height: 100vh;
