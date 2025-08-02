@@ -2,52 +2,44 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Pineapple Bandits</title>
   <link rel="stylesheet" href="assets/css/style.css">
-<!-- Pixel font: Press Start 2P -->
-<link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
-  <script src="assets/js/main.js" defer></script>
+  <!-- Pixel font from Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Loader -->
-  <div id="glitch-loader">
-    <div id="crt-noise-loader"></div>
-    <img id="loader-logo" src="assets/logos/main-logo.png" alt="Loading..." />
+  <!-- CRT Frame and Effects -->
+  <div class="crt-frame">
+    <div class="crt-corner tl"></div>
+    <div class="crt-corner tr"></div>
+    <div class="crt-corner bl"></div>
+    <div class="crt-corner br"></div>
+  </div>
+  <div class="crt-scanlines"></div>
+  <div id="crt-collapse"></div>
+
+  <!-- Glitch Loader (hidden by default, already exists in your codebase) -->
+  <div id="glitch-loader" style="display:none;">
+    <!-- Your glitch loader animation/logo goes here -->
+    <img id="loader-logo" src="assets/images/your-band-logo.png" alt="Band Logo Glitch Loader">
   </div>
 
-  <script src="assets/js/crt-transition.js"></script>
-  
-<div class="crt-frame">
-  <div class="crt-corner tl"></div>
-  <div class="crt-corner tr"></div>
-  <div class="crt-corner bl"></div>
-  <div class="crt-corner br"></div>
-</div>
-  <div class="crt-scanlines"></div>
-  <!-- Pink noise overlay (hidden by default) -->
-  <div id="crt-noise-overlay"></div>
-  
-<div id="crt-collapse"></div>
-  
   <!-- Main Content -->
-  <div class="container">
-    <img class="logo" src="assets/logos/main-logo.png" alt="Pineapple Bandits Logo" />
-    <p class="tagline">Glitch-pop meets chaos-core. Welcome to our mess.</p>
-   <nav class="ps1-nav" aria-label="Main menu">
-  <ul>
-    <li><a href="bio.html" class="menu-btn">Bio</a></li>
-    <li><a href="music.html" class="menu-btn">Music</a></li>
-    <li><a href="shows.html" class="menu-btn">Shows</a></li>
-    <li><a href="media.html" class="menu-btn">Media</a></li>
-    <li><a href="contact.html" class="menu-btn">Contact</a></li>
-  </ul>
-</nav>
-  </div>
-  <div class="bg"></div>
-  <div class="easter-egg" onclick="alert('You found the hidden pineapple 🍍')">
-    [^]
-  </div>
+  <main class="container">
+    <img class="logo" src="assets/images/main-logo.png" alt="Pineapple Bandits Logo">
+    <div class="tagline">Press Start to Enter the World of Pineapple Bandits</div>
+    <nav class="ps1-nav" aria-label="Main menu">
+      <ul>
+        <li><a href="bio.html" class="menu-btn">Bio</a></li>
+        <li><a href="music.html" class="menu-btn">Music</a></li>
+        <li><a href="shows.html" class="menu-btn">Shows</a></li>
+        <li><a href="media.html" class="menu-btn">Media</a></li>
+        <li><a href="contact.html" class="menu-btn">Contact</a></li>
+      </ul>
+    </nav>
+  </main>
+
+  <script src="assets/js/crt-transition.js"></script>
 </body>
 </html>
