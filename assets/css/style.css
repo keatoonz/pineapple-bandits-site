@@ -8,17 +8,13 @@ body.noscroll {
 
 /* Custom cursor for the whole page (optional; adjust path as needed) */
 body {
-  font-family: 'Chakra Petch', sans-serif;
-  background: #0f0f0f;
-  color: #f1f1f1;
-  overflow-x: hidden;
-  cursor: url('../images/cursor2.png'), auto;
+  cursor: url('../images/cursor.png') 16 16, auto;
 }
 a, a:visited {
   cursor: pointer;
 }
 a:hover {
-  cursor: url('../images/cursor2.png'), pointer;
+  cursor: url('../images/cursor2.png') 16 16, pointer;
 }
 /* Main layout */
 .container {
