@@ -5,10 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Pineapple Bandits</title>
   <link rel="stylesheet" href="assets/css/style.css">
-  <!-- Pixel font from Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="noscroll">
+  <!-- Loader (visible on page entry) -->
+  <div id="glitch-loader">
+    <img id="loader-logo" src="assets/images/your-band-logo.png" alt="Band Logo Glitch Loader">
+  </div>
+
   <!-- CRT Frame and Effects -->
   <div class="crt-frame">
     <div class="crt-corner tl"></div>
@@ -18,12 +22,6 @@
   </div>
   <div class="crt-scanlines"></div>
   <div id="crt-collapse"></div>
-
-  <!-- Glitch Loader (hidden by default, already exists in your codebase) -->
-  <div id="glitch-loader" style="display:none;">
-    <!-- Your glitch loader animation/logo goes here -->
-    <img id="loader-logo" src="assets/images/main-logo.png" alt="Band Logo Glitch Loader">
-  </div>
 
   <!-- Main Content -->
   <main class="container">
@@ -40,6 +38,7 @@
     </nav>
   </main>
 
+  <script src="assets/js/loader.js"></script>
   <script src="assets/js/crt-transition.js"></script>
 </body>
 </html>
