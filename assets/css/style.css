@@ -93,12 +93,12 @@ body {
 
 #loader-logo {
   max-width: 200px;
-  animation: flicker 1.5s infinite steps(1, end);
+/*  animation: flicker 1.5s infinite steps(1, end); */
   position: relative;
   z-index: 10001;
 }
 
-@keyframes flicker {
+/* @keyframes flicker {
   0%, 100% { opacity: 1; }
   10% { opacity: 0.3; }
   20% { opacity: 1; }
