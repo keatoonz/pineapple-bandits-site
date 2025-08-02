@@ -13,9 +13,6 @@ body {
 a, a:visited {
   cursor: pointer;
 }
-a:hover {
-  cursor: url('../images/cursor2.png') 16 16, pointer !important;
-}
 /* Main layout */
 .container {
   height: 100vh;
@@ -75,6 +72,7 @@ a:hover {
   color: #0f0f0f;
   border-color: #00ffcc;
   box-shadow: 0 2px 12px #00ffcc55;
+  cursor: url('../images/cursor2.png') 16 16, pointer;
 }
 
 /* Loader Container */
