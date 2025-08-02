@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const noiseLoader = document.getElementById('crt-noise-loader');
   const pinkNoise = document.getElementById('crt-noise-overlay');
   const altLogos = [
+    'assets/logos/main-logo.png',
     'assets/logos/alt1.png',
     'assets/logos/alt2.png',
     'assets/logos/alt3.png',
