@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     interval = setInterval(() => {
       logo.src = altLogos[index % altLogos.length];
       index++;
-    }, 200);
+    }, 600);
   }
 
   // End loader after 3s
