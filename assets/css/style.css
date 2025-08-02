@@ -1,34 +1,66 @@
-/* NO SCROLL ON LOADER */
-html.noscroll,
-body.noscroll {
+/* --- NO SCROLL ON LOADER --- */
+html.noscroll, body.noscroll {
   overflow: hidden !important;
   position: fixed;
   width: 100vw;
   height: 100vh;
 }
 
-/* Pixel Font */
-body, .ps1-nav {
-  font-family: 'Press Start 2P', monospace;
+/* --- Loader Styles (green/pink overlays) --- */
+#glitch-loader {
+  background: #fff;
+  position: fixed;
+  top: 0; left: 0;
+  z-index: 9999;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
 }
-
-/* Background & CRT Frame */
-body {
-  background: #111214;
-  color: #f1f1f1;
-  margin: 0;
-  min-height: 100vh;
-  overflow-x: hidden;
+#loader-logo {
+  max-width: 200px;
   position: relative;
+  z-index: 10001;
+}
+#crt-noise-loader {
+  position: absolute;
+  z-index: 10000;
+  top: 0; left: 0; width: 100%; height: 100%;
+  pointer-events: none;
+  opacity: 1;
+  mix-blend-mode: multiply;
+  background: url('../images/green-noise.png');
+  background-repeat: repeat;
+  animation: noise-move 4s linear infinite;
+  display: block;
+}
+#crt-noise-overlay {
+  position: fixed;
+  z-index: 9999;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  pointer-events: none;
+  opacity: 1;
+  mix-blend-mode: multiply;
+  background: url('../images/pink-noise.png');
+  background-repeat: repeat;
+  animation: noise-move 5s linear infinite;
+  display: none;
+}
+@keyframes noise-move {
+  0% { background-position: 0 0; }
+  100% { background-position: 100px 100px; }
 }
 
-/* CRT Frame Overlay */
+/* --- CRT Frame and Scanlines (NEW) --- */
 .crt-frame {
   position: fixed;
   top: 0; left: 0;
   width: 100vw; height: 100vh;
   pointer-events: none;
-  z-index: 10000;
+  z-index: 10001;
   border-radius: 40px;
   box-shadow: 0 0 60px #0ff8, 0 0 0 15px #0ff4 inset;
   border: 8px solid #12fcec;
@@ -43,8 +75,6 @@ body {
 .crt-corner.tr { top: 0; right: 0; border-top-right-radius: 40px; transform: scaleX(-1);}
 .crt-corner.bl { bottom: 0; left: 0; border-bottom-left-radius: 40px; transform: scaleY(-1);}
 .crt-corner.br { bottom: 0; right: 0; border-bottom-right-radius: 40px; transform: scaleX(-1) scaleY(-1);}
-
-/* CRT Scanlines & Flicker */
 .crt-scanlines {
   pointer-events: none;
   position: fixed;
@@ -57,8 +87,7 @@ body {
       rgba(0,0,0,0.13) 1.5px,
       transparent 1.5px,
       transparent 4px
-    ),
-    url('../images/green-noise.png');
+    );
   opacity: 0.58;
   mix-blend-mode: lighten;
   border-radius: 38px;
@@ -76,8 +105,7 @@ body {
   42% { opacity: 0.49; }
   90% { opacity: 0.55; }
 }
-
-/* CRT Collapse Animation Overlay */
+/* CRT Collapse Animation */
 #crt-collapse {
   position: fixed;
   left: 0; top: 0; width: 100vw; height: 100vh;
@@ -100,43 +128,7 @@ body {
   100% { clip-path: inset(50% 0 50% 0); opacity: 0.82; }
 }
 
-/* Layout */
-.container {
-  min-height: 100vh;
-  min-width: 100vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  box-sizing: border-box;
-  padding-bottom: 60px;
-}
-
-.logo {
-  width: 170px;
-  margin-top: 60px;
-  animation: glitch 1.5s infinite;
-}
-
-@keyframes glitch {
-  0% { transform: translate(0); }
-  20% { transform: translate(-2px, 2px); }
-  40% { transform: translate(2px, -2px); }
-  60% { transform: translate(-2px, -2px); }
-  80% { transform: translate(2px, 2px); }
-  100% { transform: translate(0); }
-}
-
-.tagline {
-  margin-top: 30px;
-  font-size: 1rem;
-  color: #00ffcc;
-  text-shadow: 0 0 10px #00ffcc;
-  text-align: center;
-}
-
-/* PS1 Menu Style Nav */
+/* --- PS1 Main Menu --- */
 .ps1-nav {
   font-family: 'Press Start 2P', monospace;
   position: absolute;
@@ -152,6 +144,7 @@ body {
   min-width: 260px;
   filter: contrast(1.25) brightness(1.04);
   user-select: none;
+  display: none; /* HIDE NAV BY DEFAULT */
 }
 .ps1-nav ul {
   list-style: none;
@@ -193,26 +186,38 @@ body {
   text-shadow: 0 0 7px #fff, 0 0 2px #0ff9;
 }
 
-/* Loader */
-#glitch-loader {
-  background: #fff;
-  position: fixed;
-  top: 0; left: 0;
-  z-index: 9999;
-  width: 100vw;
-  height: 100vh;
+/* Main layout */
+.container {
+  min-height: 100vh;
+  min-width: 100vw;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  gap: 2rem;
-}
-#loader-logo {
-  max-width: 200px;
   position: relative;
-  z-index: 10001;
+  box-sizing: border-box;
+  padding-bottom: 60px;
 }
-
+.logo {
+  width: 170px;
+  margin-top: 60px;
+  animation: glitch 1.5s infinite;
+}
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(2px, -2px); }
+  60% { transform: translate(-2px, -2px); }
+  80% { transform: translate(2px, 2px); }
+  100% { transform: translate(0); }
+}
+.tagline {
+  margin-top: 30px;
+  font-size: 1rem;
+  color: #00ffcc;
+  text-shadow: 0 0 10px #00ffcc;
+  text-align: center;
+}
 /* Responsive */
 @media (max-width: 700px) {
   .container { padding-bottom: 20px; }
