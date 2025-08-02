@@ -14,7 +14,9 @@ body {
   overflow-x: hidden;
   cursor: url('../images/cursor.png'), auto;
 }
-
+a:hover {
+  cursor: cursor: url('../images/cursor2.png'), pointer;
+}
 /* Main layout */
 .container {
   height: 100vh;
