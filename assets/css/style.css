@@ -6,43 +6,15 @@ body.noscroll {
   height: 100vh;
 }
 
-/* General Reset and Fonts */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  cursor: url('../logos/main-logo.png'), auto;
-}
-
 body {
- body.no-scroll {
-  overflow: hidden !important;
-  height: 100vh;
-  width: 100vw;
-}
-  
-  background-color: #0e0e0e;
-  color: #e5e5e5;
-  font-family: 'Roboto', sans-serif;
-  font-size: 16px;
-  line-height: 1.6;
+  font-family: 'Chakra Petch', sans-serif;
+  background: #0f0f0f;
+  color: #f1f1f1;
   overflow-x: hidden;
 }
 
-a {
-  color: #f0f0f0;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-a:hover {
-  color: #ff3399;
-  text-shadow: 0 0 5px #ff3399;
-}
-
-/* Page Structure */
 .container {
-  min-height: 100vh;   /* instead of height */
+  min-height: 100vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -50,101 +22,95 @@ a:hover {
   justify-content: center;
   position: relative;
   box-sizing: border-box;
-  padding-bottom: 60px; /* enough to fit nav on small screens */
+  padding-bottom: 60px;
 }
 
-header, footer {
-  text-align: center;
-  padding: 40px 0;
+.logo {
+  width: 300px;
+  animation: glitch 1.5s infinite;
 }
 
-header img {
-  width: 200px;
-  height: auto;
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(2px, -2px); }
+  60% { transform: translate(-2px, -2px); }
+  80% { transform: translate(2px, 2px); }
+  100% { transform: translate(0); }
 }
 
-/* Grid layout for merch & music */
-.grid {
-  display: grid;
-  gap: 2rem;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  margin-top: 3rem;
+.tagline {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  color: #00ffcc;
+  text-shadow: 0 0 10px #00ffcc;
 }
 
-.grid-item {
-  background-color: #1a1a1a;
-  padding: 1rem;
-  border: 1px solid #2a2a2a;
-  transition: transform 0.3s ease;
-}
-
-.grid-item:hover {
-  transform: scale(1.03);
-  border-color: #ff3399;
-}
-
-/* Glitch Text Effect (optional) */
-.glitch {
-  color: #fff;
-  position: relative;
-}
-
-.glitch::before,
-.glitch::after {
-  content: attr(data-text);
+.nav {
   position: absolute;
+  bottom: 30px;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #ffffffcc;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ffffff44;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.nav a:hover {
+  background: #00ffcc;
+  color: #0f0f0f;
+  border-color: #00ffcc;
+}
+
+.bg {
+  position: absolute;
+  top: 0;
   left: 0;
   width: 100%;
-  overflow: hidden;
-  clip: rect(0, 900px, 0, 0);
+  height: 100%;
+  background: url('https://grainy-gradients.vercel.app/noise.svg');
+  opacity: 0.03;
+  z-index: -1;
 }
 
-.glitch::before {
-  animation: glitchTop 2s infinite linear alternate-reverse;
-  color: #00ff99;
+.easter-egg {
+  position: fixed;
+  top: 5px;
+  right: 10px;
+  font-size: 12px;
+  cursor: pointer;
+  opacity: 0.4;
+}
+.easter-egg:hover {
+  opacity: 1;
 }
 
-.glitch::after {
-  animation: glitchBottom 2s infinite linear alternate-reverse;
-  color: #ff3399;
-}
-
-@keyframes glitchTop {
-  0% { clip: rect(42px, 9999px, 44px, 0); }
-  20% { clip: rect(12px, 9999px, 14px, 0); }
-  40% { clip: rect(62px, 9999px, 65px, 0); }
-  60% { clip: rect(32px, 9999px, 34px, 0); }
-  80% { clip: rect(22px, 9999px, 25px, 0); }
-  100% { clip: rect(12px, 9999px, 14px, 0); }
-}
-
-@keyframes glitchBottom {
-  0% { clip: rect(85px, 9999px, 86px, 0); }
-  20% { clip: rect(44px, 9999px, 45px, 0); }
-  40% { clip: rect(65px, 9999px, 67px, 0); }
-  60% { clip: rect(25px, 9999px, 26px, 0); }
-  80% { clip: rect(15px, 9999px, 16px, 0); }
-  100% { clip: rect(5px, 9999px, 6px, 0); }
-}
-
-/* Loader */
+/* Loader Container */
 #glitch-loader {
   background: #fff;
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 0; left: 0;
   z-index: 9999;
   width: 100vw;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
+  flex-direction: column;
+  gap: 2rem;
 }
 
-#glitch-loader img {
+#loader-logo {
   max-width: 200px;
   animation: flicker 1.5s infinite steps(1, end);
+  position: relative;
+  z-index: 10001;
 }
 
 @keyframes flicker {
@@ -163,30 +129,30 @@ header img {
 /* Loader Overlay: green noise */
 #crt-noise-loader {
   position: absolute;
-  z-index: 9999;
+  z-index: 10000;
   top: 0; left: 0; width: 100%; height: 100%;
   pointer-events: none;
-  opacity: 1; /* Medium intensity */
-  mix-blend-mode: multiply; 
+  opacity: 0.18;
+  mix-blend-mode: multiply;
   background: url('../images/green-noise.png');
   background-repeat: repeat;
   animation: noise-move 4s linear infinite;
 }
 
-/* Main pink noise overlay */
+/* Pink noise overlay (hidden by default, shown after loader) */
 #crt-noise-overlay {
   position: fixed;
   z-index: 9999;
   top: 0; left: 0; width: 100vw; height: 100vh;
   pointer-events: none;
-  opacity: 1; /* Barely visible */
+  opacity: 0.18;
   mix-blend-mode: multiply;
   background: url('../images/pink-noise.png');
   background-repeat: repeat;
   animation: noise-move 5s linear infinite;
+  display: none;
 }
 
-/* Subtle animation for both overlays */
 @keyframes noise-move {
   0% { background-position: 0 0; }
   100% { background-position: 100px 100px; }
