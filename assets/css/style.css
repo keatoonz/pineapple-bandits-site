@@ -165,3 +165,26 @@ a, a:visited {
 .easter-egg:hover {
   opacity: 1;
 }
+/* CRT HUD Frame */
+.crt-frame {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  pointer-events: none;
+  z-index: 10000;
+  border-radius: 40px;
+  box-shadow: 0 0 60px #0ff8, 0 0 0 15px #0ff4 inset;
+  border: 8px solid #12fcec;
+  overflow: hidden;
+}
+
+.crt-corner {
+  position: absolute;
+  width: 48px; height: 48px;
+  background: radial-gradient(circle at 80% 80%, #0ff8 60%, transparent 100%);
+}
+
+.crt-corner.tl { top: 0; left: 0; border-top-left-radius: 40px; }
+.crt-corner.tr { top: 0; right: 0; border-top-right-radius: 40px; transform: scaleX(-1);}
+.crt-corner.bl { bottom: 0; left: 0; border-bottom-left-radius: 40px; transform: scaleY(-1);}
+.crt-corner.br { bottom: 0; right: 0; border-bottom-right-radius: 40px; transform: scaleX(-1) scaleY(-1);}
