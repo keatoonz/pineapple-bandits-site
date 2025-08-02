@@ -1,21 +1,23 @@
-// crt-transition.js
+// CRT Collapse and Loader Transition
 document.querySelectorAll('.ps1-nav .menu-btn').forEach(btn => {
   btn.addEventListener('click', function(e) {
     e.preventDefault();
 
+    // Start CRT collapse
     const crtCollapse = document.getElementById('crt-collapse');
-    if (!crtCollapse) return;
-
     crtCollapse.classList.add('collapse-anim');
 
     setTimeout(() => {
-      // Show the glitch loader (assuming you have a function or simply show the loader div)
+      // Show glitch loader (assumes your loader is hidden by default)
       document.getElementById('glitch-loader').style.display = 'flex';
 
-      // After your glitch loader animation is done, redirect:
+      // Hide CRT collapse
+      crtCollapse.classList.remove('collapse-anim');
+
+      // After loader, go to target page
       setTimeout(() => {
         window.location = btn.href;
-      }, 1800); // Adjust this to match your loader's animation length
+      }, 1800); // Adjust to match your loader's duration
     }, 800); // CRT collapse duration
   });
 });
