@@ -12,16 +12,13 @@ body {
   background: #0f0f0f;
   color: #f1f1f1;
   overflow-x: hidden;
-  cursor: url('../images/cursor.png'), auto;
+  cursor: url('../images/cursor2.png'), auto;
 }
 a, a:visited {
   cursor: pointer;
 }
 a:hover {
   cursor: url('../images/cursor2.png'), pointer;
-}
-* {
-  cursor: url('../images/cursor2.png'), pointer !important;
 }
 /* Main layout */
 .container {
