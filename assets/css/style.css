@@ -117,7 +117,7 @@ body {
   z-index: 10000;
   top: 0; left: 0; width: 100%; height: 100%;
   pointer-events: none;
-  opacity: 0.18;
+  opacity: 1;
   mix-blend-mode: multiply;
   background: url('../images/green-noise.png');
   background-repeat: repeat;
@@ -131,7 +131,7 @@ body {
   z-index: 9999;
   top: 0; left: 0; width: 100vw; height: 100vh;
   pointer-events: none;
-  opacity: 0.18;
+  opacity: 1;
   mix-blend-mode: multiply;
   background: url('../images/pink-noise.png');
   background-repeat: repeat;
