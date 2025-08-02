@@ -7,8 +7,11 @@ document.addEventListener('DOMContentLoaded', () => {
     'assets/logos/alt3.png',
     'assets/logos/alt4.png'
   ];
-  // Prevent scroll while loader is showing
-  document.body.classList.add('no-scroll');
+
+  // Prevent scrolling and force scroll to top
+  document.documentElement.classList.add('noscroll');
+  document.body.classList.add('noscroll');
+  window.scrollTo(0, 0);
 
   if (loader && logo) {
     let index = 0;
@@ -20,8 +23,9 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
       clearInterval(interval);
       loader.style.display = 'none';
-      // Allow scrolling after loader is gone
-      document.body.classList.remove('no-scroll');
+      // Re-enable scrolling
+      document.documentElement.classList.remove('noscroll');
+      document.body.classList.remove('noscroll');
     }, 3000);
   }
 });
