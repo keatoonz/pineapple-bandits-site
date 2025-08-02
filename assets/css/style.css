@@ -1,171 +1,19 @@
-html.noscroll,
-body.noscroll {
-  overflow: hidden !important;
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
+/* Pixel Font */
+body, .ps1-nav {
+  font-family: 'Press Start 2P', monospace;
 }
 
-/* Custom cursor for the whole page (optional; adjust path as needed) */
+/* Background & CRT Frame */
 body {
-  cursor: url('../images/cursor.png') 16 16, auto;
-}
-a, a:visited {
-  cursor: pointer;
-}
-/* Main layout */
-.container {
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  background: #111214;
+  color: #f1f1f1;
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
   position: relative;
-  box-sizing: border-box;
-  padding-bottom: 60px;
 }
 
-.logo {
-  width: 170px; /* smaller logo */
-  animation: glitch 1.5s infinite;
-}
-
-@keyframes glitch {
-  0% { transform: translate(0); }
-  20% { transform: translate(-2px, 2px); }
-  40% { transform: translate(2px, -2px); }
-  60% { transform: translate(-2px, -2px); }
-  80% { transform: translate(2px, 2px); }
-  100% { transform: translate(0); }
-}
-
-.tagline {
-  margin-top: 20px;
-  font-size: 1.2rem;
-  color: #00ffcc;
-  text-shadow: 0 0 10px #00ffcc;
-}
-
-/* NAV RESTORED */
-.nav {
-  position: absolute;
-  bottom: 30px;
-  display: flex;
-  gap: 2rem;
-}
-
-.nav a {
-  text-decoration: none;
-  color: #ffffffcc;
-  padding: 0.5rem 1rem;
-  border: 1px solid #ffffff44;
-  border-radius: 5px;
-  transition: 0.3s;
-  box-shadow: 0 2px 6px #0002;
-  background: #18191b;
-  cursor: pointer; /* RESTORED pointer */
-}
-
-.nav a:hover {
-  background: #00ffcc;
-  color: #0f0f0f;
-  border-color: #00ffcc;
-  box-shadow: 0 2px 12px #00ffcc55;
-  cursor: url('../images/cursor2.png') 16 16, pointer;
-}
-
-/* Loader Container */
-#glitch-loader {
-  background: #fff;
-  position: fixed;
-  top: 0; left: 0;
-  z-index: 9999;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-#loader-logo {
-  max-width: 200px;
-/*  animation: flicker 1.5s infinite steps(1, end); */
-  position: relative;
-  z-index: 10001;
-}
-
-/* @keyframes flicker {
-  0%, 100% { opacity: 1; }
-  10% { opacity: 0.3; }
-  20% { opacity: 1; }
-  30% { opacity: 0.6; }
-  40% { opacity: 1; }
-  50% { opacity: 0.2; }
-  60% { opacity: 1; }
-  70% { opacity: 0.4; }
-  80% { opacity: 1; }
-  90% { opacity: 0.7; }
-}
-
-/* Loader Overlay: green noise */
-#crt-noise-loader {
-  position: absolute;
-  z-index: 10000;
-  top: 0; left: 0; width: 100%; height: 100%;
-  pointer-events: none;
-  opacity: 1;
-  mix-blend-mode: multiply;
-  background: url('../images/green-noise.png');
-  background-repeat: repeat;
-  animation: noise-move 4s linear infinite;
-  display: block;
-}
-
-/* Pink noise overlay (hidden by default, shown after loader) */
-#crt-noise-overlay {
-  position: fixed;
-  z-index: 9999;
-  top: 0; left: 0; width: 100vw; height: 100vh;
-  pointer-events: none;
-  opacity: 1;
-  mix-blend-mode: multiply;
-  background: url('../images/pink-noise.png');
-  background-repeat: repeat;
-  animation: noise-move 5s linear infinite;
-  display: none;
-}
-
-@keyframes noise-move {
-  0% { background-position: 0 0; }
-  100% { background-position: 100px 100px; }
-}
-
-.bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('https://grainy-gradients.vercel.app/noise.svg');
-  opacity: 0.03;
-  z-index: -1;
-}
-
-.easter-egg {
-  position: fixed;
-  top: 5px;
-  right: 10px;
-  font-size: 12px;
-  cursor: pointer;
-  opacity: 0.4;
-}
-.easter-egg:hover {
-  opacity: 1;
-}
-/* CRT HUD Frame */
+/* CRT Frame Overlay */
 .crt-frame {
   position: fixed;
   top: 0; left: 0;
@@ -177,18 +25,17 @@ a, a:visited {
   border: 8px solid #12fcec;
   overflow: hidden;
 }
-
 .crt-corner {
   position: absolute;
   width: 48px; height: 48px;
   background: radial-gradient(circle at 80% 80%, #0ff8 60%, transparent 100%);
 }
-
 .crt-corner.tl { top: 0; left: 0; border-top-left-radius: 40px; }
 .crt-corner.tr { top: 0; right: 0; border-top-right-radius: 40px; transform: scaleX(-1);}
 .crt-corner.bl { bottom: 0; left: 0; border-bottom-left-radius: 40px; transform: scaleY(-1);}
 .crt-corner.br { bottom: 0; right: 0; border-bottom-right-radius: 40px; transform: scaleX(-1) scaleY(-1);}
 
+/* CRT Scanlines & Flicker */
 .crt-scanlines {
   pointer-events: none;
   position: fixed;
@@ -208,7 +55,79 @@ a, a:visited {
   border-radius: 38px;
   overflow: hidden;
   transition: opacity 0.3s;
+  animation: crt-flicker 1.7s infinite steps(2, end);
 }
+@keyframes crt-flicker {
+  0%, 100% { opacity: 0.48; }
+  19% { opacity: 0.62; }
+  20% { opacity: 0.37; }
+  21% { opacity: 0.62; }
+  40% { opacity: 0.49; }
+  41% { opacity: 0.7; }
+  42% { opacity: 0.49; }
+  90% { opacity: 0.55; }
+}
+
+/* CRT Collapse Animation Overlay */
+#crt-collapse {
+  position: fixed;
+  left: 0; top: 0; width: 100vw; height: 100vh;
+  z-index: 20000;
+  pointer-events: none;
+  background: #fff;
+  opacity: 0;
+  transition: opacity 0.15s;
+  will-change: clip-path, opacity;
+  clip-path: inset(0 0 0 0);
+}
+#crt-collapse.collapse-anim {
+  opacity: 1;
+  animation: crt-collapse-anim 0.8s cubic-bezier(.9,0,.1,1) forwards;
+}
+@keyframes crt-collapse-anim {
+  0%   { clip-path: inset(0 0 0 0); opacity: 1; }
+  60%  { clip-path: inset(48% 0 48% 0); opacity: 1; }
+  80%  { clip-path: inset(49% 0 49% 0); opacity: 1; }
+  100% { clip-path: inset(50% 0 50% 0); opacity: 0.82; }
+}
+
+/* Layout */
+.container {
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  padding-bottom: 60px;
+}
+
+.logo {
+  width: 170px;
+  margin-top: 60px;
+  animation: glitch 1.5s infinite;
+}
+
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(2px, -2px); }
+  60% { transform: translate(-2px, -2px); }
+  80% { transform: translate(2px, 2px); }
+  100% { transform: translate(0); }
+}
+
+.tagline {
+  margin-top: 30px;
+  font-size: 1rem;
+  color: #00ffcc;
+  text-shadow: 0 0 10px #00ffcc;
+  text-align: center;
+}
+
+/* PS1 Menu Style Nav */
 .ps1-nav {
   font-family: 'Press Start 2P', monospace;
   position: absolute;
@@ -225,7 +144,6 @@ a, a:visited {
   filter: contrast(1.25) brightness(1.04);
   user-select: none;
 }
-
 .ps1-nav ul {
   list-style: none;
   margin: 0; padding: 0;
@@ -233,7 +151,6 @@ a, a:visited {
   flex-direction: column;
   gap: 1.7rem;
 }
-
 .ps1-nav .menu-btn {
   display: block;
   width: 100%;
@@ -257,7 +174,6 @@ a, a:visited {
   filter: blur(0.2px) brightness(1.05);
   position: relative;
 }
-
 .ps1-nav .menu-btn:focus,
 .ps1-nav .menu-btn:hover,
 .ps1-nav li.selected .menu-btn {
@@ -267,41 +183,31 @@ a, a:visited {
   box-shadow: 0 0 12px #fff, 0 2px 16px #0ffb;
   text-shadow: 0 0 7px #fff, 0 0 2px #0ff9;
 }
-@keyframes crt-flicker {
-  0%, 100% { opacity: 0.48; }
-  19% { opacity: 0.62; }
-  20% { opacity: 0.37; }
-  21% { opacity: 0.62; }
-  40% { opacity: 0.49; }
-  41% { opacity: 0.7; }
-  42% { opacity: 0.49; }
-  90% { opacity: 0.55; }
-}
 
-.crt-scanlines {
-  animation: crt-flicker 1.7s infinite steps(2, end);
-}
-#crt-collapse {
-  position: fixed;
-  left: 0; top: 0; width: 100vw; height: 100vh;
-  z-index: 20000;
-  pointer-events: none;
+/* Loader */
+#glitch-loader {
   background: #fff;
-  opacity: 0;
-  transition: opacity 0.15s;
-  will-change: clip-path, opacity;
-  clip-path: inset(0 0 0 0);
+  position: fixed;
+  top: 0; left: 0;
+  z-index: 9999;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+}
+#loader-logo {
+  max-width: 200px;
+  position: relative;
+  z-index: 10001;
 }
 
-/* When animating */
-#crt-collapse.collapse-anim {
-  opacity: 1;
-  animation: crt-collapse-anim 0.8s cubic-bezier(.9,0,.1,1) forwards;
-}
-
-@keyframes crt-collapse-anim {
-  0%   { clip-path: inset(0 0 0 0); opacity: 1; }
-  60%  { clip-path: inset(48% 0 48% 0); opacity: 1; }
-  80%  { clip-path: inset(49% 0 49% 0); opacity: 1; }
-  100% { clip-path: inset(50% 0 50% 0); opacity: 0.82; }
+/* Responsive */
+@media (max-width: 700px) {
+  .container { padding-bottom: 20px; }
+  .logo { width: 110px; }
+  .ps1-nav { min-width: 150px; padding: 1.2rem 0.7rem; }
+  .ps1-nav .menu-btn { font-size: 0.72rem; padding: 0.7rem 1.2rem; }
 }
