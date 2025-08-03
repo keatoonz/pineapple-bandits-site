@@ -225,7 +225,7 @@ a, a:visited {
 }
 
 .logo {
-  width: 160px;
+  width: 190px;
   max-width: 80vw;
   margin-top: 40px;
   margin-bottom: 48px; /* add space below logo */
@@ -243,7 +243,8 @@ a, a:visited {
 /* Responsive */
 @media (max-width: 700px) {
   .container { padding-bottom: 20px; }
-  .logo { width: 110px; }
+  .logo { width: 100px; margin-bottom: 28px; }
   .ps1-nav { min-width: 150px; padding: 1.2rem 0.7rem; }
+  .ps1-nav ul { gap: 1.2rem; }
   .ps1-nav .menu-btn { font-size: 0.72rem; padding: 0.7rem 1.2rem; }
 }
