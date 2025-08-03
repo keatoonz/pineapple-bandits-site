@@ -50,7 +50,7 @@
   <img class="crt-border" src="assets/images/border.png" alt="CRT border" draggable="false" />
   
   <!-- Loader flicker logic -->
- <script>
+<script>
 function runLoaderLogic() {
   const altLogos = [
     'assets/logos/main-logo.png',
@@ -60,7 +60,19 @@ function runLoaderLogic() {
     'assets/logos/alt4.png'
   ];
   const logo = document.getElementById('loader-logo');
+  const loader = document.getElementById('glitch-loader');
+  const noiseLoader = document.getElementById('crt-noise-loader');
+  const pinkNoise = document.getElementById('crt-noise-overlay');
   let interval = null;
+
+  // --- RESET loader and overlays to initial state ---
+  if(loader) loader.style.display = '';
+  if(noiseLoader) noiseLoader.style.display = '';
+  if(pinkNoise) pinkNoise.style.display = 'none';
+
+  // Scrolling lock
+  document.body.classList.add('noscroll');
+  document.documentElement.classList.add('noscroll');
 
   if (logo) {
     logo.src = altLogos[0];
@@ -75,9 +87,6 @@ function runLoaderLogic() {
       if (interval) clearInterval(interval);
 
       // Hide loader & green noise
-      const loader = document.getElementById('glitch-loader');
-      const noiseLoader = document.getElementById('crt-noise-loader');
-      const pinkNoise = document.getElementById('crt-noise-overlay');
       if(loader) loader.style.display = 'none';
       if(noiseLoader) noiseLoader.style.display = 'none';
       if(pinkNoise) pinkNoise.style.display = 'block';
@@ -96,16 +105,13 @@ function runLoaderLogic() {
   }
 }
 
-// Run on DOMContentLoaded for normal loads
 document.addEventListener('DOMContentLoaded', runLoaderLogic);
-// Run on pageshow for bfcache restores (back/forward navigation)
 window.addEventListener('pageshow', function(event) {
   if (event.persisted) {
     runLoaderLogic();
   }
 });
 </script>
-
   <!-- CRT collapse transition on nav click -->
   <script src="assets/js/crt-transition.js"></script>
 </body>
