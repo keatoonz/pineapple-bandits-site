@@ -169,7 +169,6 @@ a, a:visited {
   min-width: 260px;
   filter: contrast(1.25) brightness(1.04);
   user-select: none;
-  display: none; /* HIDE NAV BY DEFAULT */
 }
 .ps1-nav ul {
   list-style: none;
