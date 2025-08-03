@@ -14,13 +14,13 @@
   <div id="glitch-loader">
     <div class="crt-overlay"></div>
     <div class="logo-flicker">
-      <img id="loader-logo" src="/assets/images/logos/main-logo.png" alt="Band Logo" />
+      <img id="loader-logo" src="assets/logos/main-logo.png" alt="Band Logo" />
     </div>
   </div>
   <div id="crt-noise-loader"></div>
   <div id="crt-noise-overlay"></div>
 
-  <!-- CRT Frame and Scanlines: NEW, fixed corner transforms -->
+  <!-- CRT Frame and Scanlines (with fixed corner transforms) -->
   <div class="crt-frame">
     <div class="crt-corner tl"></div>
     <div class="crt-corner tr"></div>
@@ -32,7 +32,7 @@
 
   <!-- Main Content: Hidden during loader -->
   <main class="container" style="display:none;">
-    <img class="logo" src="assets/images/main-logo.png" alt="Pineapple Bandits Logo">
+    <img class="logo" src="assets/logos/main-logo.png" alt="Pineapple Bandits Logo">
     <div class="tagline">Press Start to Enter the World of Pineapple Bandits</div>
     <nav class="ps1-nav" aria-label="Main menu" style="display:none;">
       <ul>
@@ -47,14 +47,13 @@
 
   <!-- Loader flicker logic -->
   <script>
-    // Loader logo flicker
     document.addEventListener('DOMContentLoaded', function() {
       const altLogos = [
-        '/assets/logos/main-logo.png',
-        '/assets/logos/alt1.png',
-        '/assets/logos/alt2.png',
-        '/assets/logos/alt3.png',
-        '/assets/logos/alt4.png'
+        'assets/logos/main-logo.png',
+        'assets/logos/alt1.png',
+        'assets/logos/alt2.png',
+        'assets/logos/alt3.png',
+        'assets/logos/alt4.png'
       ];
       const logo = document.getElementById('loader-logo');
       let index = 0;
@@ -67,7 +66,6 @@
         }, 400);
       }
 
-      // Loader and overlay reveal logic
       setTimeout(() => {
         if (interval) clearInterval(interval);
 
@@ -85,7 +83,7 @@
         const nav = document.querySelector('.ps1-nav');
         if(main) main.style.display = '';
         if(nav) nav.style.display = '';
-      }, 3000); // Adjust loader duration as needed
+      }, 3000); // Adjust loader duration if needed
     });
   </script>
 
