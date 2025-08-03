@@ -40,5 +40,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Re-enable scrolling
     document.documentElement.classList.remove('noscroll');
     document.body.classList.remove('noscroll');
+
+      // --- ADD THIS: reveal main content/nav ---
+  if (typeof window.loaderDone === "function") window.loaderDone();
   }, 3000);
 });
