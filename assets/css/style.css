@@ -4,6 +4,7 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
+  font-family: 'Girassol', serif !important;
 }
 html.noscroll, body.noscroll {
   overflow: hidden !important;
