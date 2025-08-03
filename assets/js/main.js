@@ -4,22 +4,23 @@ document.addEventListener('DOMContentLoaded', () => {
   const noiseLoader = document.getElementById('crt-noise-loader');
   const pinkNoise = document.getElementById('crt-noise-overlay');
   const altLogos = [
-  '../logos/main-logo.png',
-  '../logos/alt1.png',
-  '../logos/alt2.png',
-  '../logos/alt3.png',
-  '../logos/alt4.png'
-];
+    'assets/logos/main-logo.png',
+    'assets/logos/alt1.png',
+    'assets/logos/alt2.png',
+    'assets/logos/alt3.png',
+    'assets/logos/alt4.png'
+  ];
+  let index = 1;
+  let interval = null;
 
   // Prevent scrolling and force scroll to top during loader
   document.documentElement.classList.add('noscroll');
   document.body.classList.add('noscroll');
   window.scrollTo(0, 0);
 
-  // Flicker loader logo
-  let index = 0;
-  let interval = null;
+  // Reset logo to default and start flicker
   if (logo) {
+    logo.src = altLogos[0];
     interval = setInterval(() => {
       logo.src = altLogos[index % altLogos.length];
       index++;
@@ -41,7 +42,8 @@ document.addEventListener('DOMContentLoaded', () => {
     document.documentElement.classList.remove('noscroll');
     document.body.classList.remove('noscroll');
 
-      // --- ADD THIS: reveal main content/nav ---
-  if (typeof window.loaderDone === "function") window.loaderDone();
+    // --- Reveal main content/nav if needed ---
+    if (typeof window.loaderDone === "function") window.loaderDone();
+
   }, 3000);
 });
