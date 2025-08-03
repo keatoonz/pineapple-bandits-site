@@ -70,47 +70,7 @@ a, a:visited {
 }
 
 /* --- CRT Frame and Scanlines (NEW) --- */
-.crt-frame {
-  position: fixed;
-  top: 8px;
-  left: 8px;
-  width: calc(100vw - 16px);
-  height: calc(100vh - 16px);
-  pointer-events: none;
-  z-index: 10001;
-  border-radius: 40px;
-  box-shadow: 0 0 60px #0ff8, 0 0 0 15px #0ff4 inset;
-  border: 8px solid #12fcec;
-  overflow: hidden;
-}
-.crt-corner {
-  position: absolute;
-  width: 32px; height: 32px;
-  background: radial-gradient(circle at 80% 80%, #0ff8 45%, transparent 100%);
-  opacity: 0.4;
-  filter: blur(0.5px);
-  pointer-events: none;
-}
-.crt-corner.tl {
-  top: 0; left: 0;
-  border-top-left-radius: 32px;
-  transform: rotate(0deg) scaleX(-1) scaleY(-1);
-}
-.crt-corner.tr {
-  top: 0; right: 0;
-  border-top-right-radius: 32px;
-  transform: rotate(90deg) scaleX(-1) scaleY(-1);
-}
-.crt-corner.br {
-  bottom: 0; right: 0;
-  border-bottom-right-radius: 32px;
-  transform: rotate(180deg) scaleX(-1) scaleY(-1);
-}
-.crt-corner.bl {
-  bottom: 0; left: 0;
-  border-bottom-left-radius: 32px;
-  transform: rotate(270deg) scaleX(-1) scaleY(-1);
-}
+
 .crt-scanlines {
   pointer-events: none;
   position: fixed;
