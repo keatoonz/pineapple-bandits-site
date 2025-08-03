@@ -165,6 +165,9 @@ a, a:visited {
   padding: 2.5rem 2rem;
   box-shadow: 0 0 24px #0ff4, 0 0 0 2px #0ff6 inset;
   border: 2px solid #0ff6;
+  max-width: 340px;
+  width: 100%;
+  box-sizing: border-box;
   min-width: 260px;
   filter: contrast(1.25) brightness(1.04);
   user-select: none;
@@ -189,6 +192,7 @@ a, a:visited {
   text-shadow: 0 0 4px #0ffb, 0 0 1px #000a;
   text-align: left;
   box-shadow: 0 2px 8px #0ff3;
+  box-sizing: border-box;
   outline: none;
   cursor: pointer;
   margin-bottom: 0.8rem;
