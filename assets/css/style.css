@@ -1,4 +1,10 @@
 /* --- NO SCROLL ON LOADER --- */
+html, body {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
 html.noscroll, body.noscroll {
   overflow: hidden !important;
   position: fixed;
@@ -66,8 +72,10 @@ a, a:visited {
 /* --- CRT Frame and Scanlines (NEW) --- */
 .crt-frame {
   position: fixed;
-  top: 0; left: 0;
-  width: 100vw; height: 100vh;
+  top: 8px;
+  left: 8px;
+  width: calc(100vw - 16px);
+  height: calc(100vh - 16px);
   pointer-events: none;
   z-index: 10001;
   border-radius: 40px;
@@ -86,22 +94,22 @@ a, a:visited {
 .crt-corner.tl {
   top: 0; left: 0;
   border-top-left-radius: 32px;
-  transform: rotate(0deg);
+  transform: rotate(0deg) scaleX(-1) scaleY(-1);
 }
 .crt-corner.tr {
   top: 0; right: 0;
   border-top-right-radius: 32px;
-  transform: rotate(90deg);
+  transform: rotate(90deg) scaleX(-1) scaleY(-1);
 }
 .crt-corner.br {
   bottom: 0; right: 0;
   border-bottom-right-radius: 32px;
-  transform: rotate(180deg);
+  transform: rotate(180deg) scaleX(-1) scaleY(-1);
 }
 .crt-corner.bl {
   bottom: 0; left: 0;
   border-bottom-left-radius: 32px;
-  transform: rotate(270deg);
+  transform: rotate(270deg) scaleX(-1) scaleY(-1);
 }
 .crt-scanlines {
   pointer-events: none;
@@ -216,6 +224,7 @@ a, a:visited {
 
 /* Main layout */
 .container {
+  /* Removed background: #181818; */
   min-height: 100vh;
   min-width: 100vw;
   display: flex;
