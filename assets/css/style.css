@@ -178,8 +178,8 @@ a, a:visited {
   border: 2px solid #0ff9;
   border-radius: 6px;
   color: #f1f1f1;
-  font-size: 5rem;
-  padding: 1.2rem 2.6rem; /* more padding */
+  font-size: 3rem;
+  padding: 1.5rem 3rem; /* more padding */
   letter-spacing: 0.11em;
   text-shadow: 0 0 4px #0ffb, 0 0 1px #000a;
   text-align: left;
