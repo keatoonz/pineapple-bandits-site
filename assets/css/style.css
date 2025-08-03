@@ -269,7 +269,7 @@ a, a:visited {
   max-width: 65vw;
   min-width: 180px;
   margin: 0 auto;
-  margin-left: -24px;
+  margin-left: -4px;
   animation: glitch 1.5s infinite;
   display: block;
   z-index: 2;
