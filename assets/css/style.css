@@ -673,3 +673,11 @@ a, a:visited {
     padding: 1rem 1rem;
   }
 }
+.ps1-nav .menu-btn {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: normal;
+  overflow-wrap: normal;
+  max-width: 100%;
+}
