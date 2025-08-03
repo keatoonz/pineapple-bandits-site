@@ -77,7 +77,7 @@ a, a:visited {
   top: 0; left: 0;
   width: 100vw;
   height: 100vh;
-  background: url('assets/images/dust.png') repeat;
+  background: url('../images/dust.png') repeat;
   background-size: cover;
   mix-blend-mode: difference;
   opacity: 1; /* Adjust as needed for subtlety */
