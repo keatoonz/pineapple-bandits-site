@@ -509,3 +509,103 @@ a, a:visited {
     max-width: 98vw;
   }
 }
+/* Make container padding slightly less, center logo better */
+.container {
+  padding: 7vh 10vw !important;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Main logo area: center logo horizontally */
+.main-logo-area {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.logo {
+  width: 500px;
+  max-width: 65vw;
+  min-width: 180px;
+  margin: 0 auto;
+  display: block;
+  z-index: 2;
+}
+
+/* Side nav: reduce max width and bottom space */
+.side-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-width: 180px;
+  max-width: 240px;
+  margin-right: 4vw;
+  margin-left: 1vw;
+  z-index: 2;
+}
+
+/* Tagline: larger font, less bottom margin */
+.tagline {
+  font-size: 2.7rem;
+  margin-bottom: 1.2rem;
+  margin-top: 0;
+  text-align: left;
+  white-space: normal;
+  word-break: break-word;
+  max-width: 90%;
+}
+
+/* Nav box: shrink to fit contents */
+.ps1-nav {
+  align-self: flex-start;
+  width: 100%;
+  max-width: 340px;
+  min-width: 180px;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  margin-bottom: 0;
+  box-sizing: border-box;
+}
+
+.ps1-nav ul {
+  gap: 2.3rem;
+}
+
+/* Responsive: keep everything away from CRT frame on mobile */
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 3vh 3vw !important;
+  }
+  .side-nav {
+    align-items: center;
+    margin: 0 0 2vh 0;
+    min-width: unset;
+    max-width: 95vw;
+  }
+  .main-logo-area {
+    justify-content: center;
+    padding: 0;
+  }
+  .logo {
+    width: 70vw;
+    max-width: 95vw;
+    margin: 0 auto;
+  }
+  .tagline {
+    font-size: 1.7rem;
+    text-align: center;
+    max-width: 98vw;
+  }
+  .ps1-nav {
+    max-width: 100vw;
+  }
+}
