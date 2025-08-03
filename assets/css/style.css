@@ -77,27 +77,30 @@ a, a:visited {
 }
 .crt-corner {
   position: absolute;
-  width: 48px; height: 48px;
-  background: radial-gradient(circle at 80% 80%, #0ff8 60%, transparent 100%);
-} 
-.crt-corner.tl { 
-  top: 0; left: 0; 
-  border-top-left-radius: 40px; 
+  width: 32px; height: 32px;
+  background: radial-gradient(circle at 80% 80%, #0ff8 45%, transparent 100%);
+  opacity: 0.4;
+  filter: blur(0.5px);
+  pointer-events: none;
+}
+.crt-corner.tl {
+  top: 0; left: 0;
+  border-top-left-radius: 32px;
   transform: rotate(0deg);
 }
-.crt-corner.tr { 
-  top: 0; right: 0; 
-  border-top-right-radius: 40px; 
+.crt-corner.tr {
+  top: 0; right: 0;
+  border-top-right-radius: 32px;
   transform: scaleX(-1);
 }
-.crt-corner.bl { 
-  bottom: 0; left: 0; 
-  border-bottom-left-radius: 40px; 
+.crt-corner.bl {
+  bottom: 0; left: 0;
+  border-bottom-left-radius: 32px;
   transform: scaleY(-1);
 }
-.crt-corner.br { 
-  bottom: 0; right: 0; 
-  border-bottom-right-radius: 40px; 
+.crt-corner.br {
+  bottom: 0; right: 0;
+  border-bottom-right-radius: 32px;
   transform: scaleX(-1) scaleY(-1);
 }
 .crt-scanlines {
@@ -155,13 +158,9 @@ a, a:visited {
 
 /* --- PS1 Main Menu --- */
 .ps1-nav {
-  font-family: 'Press Start 2P', monospace;
-  position: absolute;
-  left: 50%;
-  top: 55%;
-  transform: translate(-50%, -50%);
-  z-index: 11000;
-  background: rgba(18, 30, 26, 0.85);
+  margin-top: 0;
+  z-index: 2;
+  background: rgba(18, 30, 26, 0.92); /* a bit more opaque */
   border-radius: 18px;
   padding: 2.5rem 2rem;
   box-shadow: 0 0 24px #0ff4, 0 0 0 2px #0ff6 inset;
@@ -175,7 +174,7 @@ a, a:visited {
   margin: 0; padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 1.7rem;
+  gap: 2.3rem; /* more vertical space between menu items */
 }
 .ps1-nav .menu-btn {
   display: block;
@@ -185,20 +184,21 @@ a, a:visited {
   border-radius: 6px;
   color: #f1f1f1;
   font-size: 1.12rem;
-  padding: 1rem 2.6rem;
+  padding: 1.2rem 2.6rem; /* more padding */
   letter-spacing: 0.11em;
   text-shadow: 0 0 4px #0ffb, 0 0 1px #000a;
   text-align: left;
   box-shadow: 0 2px 8px #0ff3;
   outline: none;
   cursor: pointer;
+  margin-bottom: 0.8rem;
+  filter: blur(0.2px) brightness(1.08);
+  position: relative;
   transition:
     box-shadow 0.16s,
     background 0.16s,
     border-color 0.16s,
     color 0.14s;
-  filter: blur(0.2px) brightness(1.05);
-  position: relative;
 }
 .ps1-nav .menu-btn:focus,
 .ps1-nav .menu-btn:hover,
@@ -221,21 +221,17 @@ a, a:visited {
   position: relative;
   box-sizing: border-box;
   padding-bottom: 60px;
+  background: #181818; /* dark background */
 }
+
 .logo {
-  width: 100px;
-  max-width: 90vw;
-  margin-top: 60px;
+  width: 160px;
+  max-width: 80vw;
+  margin-top: 40px;
+  margin-bottom: 48px; /* add space below logo */
   animation: glitch 1.5s infinite;
   display: block;
-}
-@keyframes glitch {
-  0% { transform: translate(0); }
-  20% { transform: translate(-2px, 2px); }
-  40% { transform: translate(2px, -2px); }
-  60% { transform: translate(-2px, -2px); }
-  80% { transform: translate(2px, 2px); }
-  100% { transform: translate(0); }
+  z-index: 2;
 }
 .tagline {
   margin-top: 30px;
