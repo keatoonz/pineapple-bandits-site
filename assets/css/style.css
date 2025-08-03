@@ -5,7 +5,16 @@ html.noscroll, body.noscroll {
   width: 100vw;
   height: 100vh;
 }
-
+body {
+  cursor: url('../images/cursor.png') 16 16, auto;
+}
+a, a:visited {
+  cursor: pointer;
+}
+.nav a:hover,
+.ps1-nav .menu-btn:hover {
+  cursor: url('../images/cursor2.png') 16 16, pointer;
+}
 /* --- Loader Styles (green/pink overlays) --- */
 #glitch-loader {
   background: #fff;
