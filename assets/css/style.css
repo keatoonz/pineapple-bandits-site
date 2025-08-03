@@ -79,7 +79,7 @@ a, a:visited {
   position: absolute;
   width: 48px; height: 48px;
   background: radial-gradient(circle at 80% 80%, #0ff8 60%, transparent 100%);
-  
+} 
 .crt-corner.tl { 
   top: 0; left: 0; 
   border-top-left-radius: 40px; 
@@ -223,7 +223,7 @@ a, a:visited {
   padding-bottom: 60px;
 }
 .logo {
-  width: 170px;
+  width: 100px;
   max-width: 90vw;
   margin-top: 60px;
   animation: glitch 1.5s infinite;
