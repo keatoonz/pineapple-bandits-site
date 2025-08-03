@@ -178,7 +178,7 @@ a, a:visited {
   border: 2px solid #0ff9;
   border-radius: 6px;
   color: #f1f1f1;
-  font-size: 1.12rem;
+  font-size: 5rem;
   padding: 1.2rem 2.6rem; /* more padding */
   letter-spacing: 0.11em;
   text-shadow: 0 0 4px #0ffb, 0 0 1px #000a;
@@ -231,7 +231,7 @@ a, a:visited {
 }
 .tagline {
   margin-top: 30px;
-  font-size: 1rem;
+  font-size: 3rem;
   color: #00ffcc;
   text-shadow: 0 0 10px #00ffcc;
   text-align: center;
