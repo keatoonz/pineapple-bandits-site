@@ -91,17 +91,17 @@ a, a:visited {
 .crt-corner.tr {
   top: 0; right: 0;
   border-top-right-radius: 32px;
-  transform: scaleX(-1);
-}
-.crt-corner.bl {
-  bottom: 0; left: 0;
-  border-bottom-left-radius: 32px;
-  transform: scaleY(-1);
+  transform: rotate(90deg);
 }
 .crt-corner.br {
   bottom: 0; right: 0;
   border-bottom-right-radius: 32px;
-  transform: scaleX(-1) scaleY(-1);
+  transform: rotate(180deg);
+}
+.crt-corner.bl {
+  bottom: 0; left: 0;
+  border-bottom-left-radius: 32px;
+  transform: rotate(270deg);
 }
 .crt-scanlines {
   pointer-events: none;
@@ -221,7 +221,6 @@ a, a:visited {
   position: relative;
   box-sizing: border-box;
   padding-bottom: 60px;
-  background: #181818; /* dark background */
 }
 
 .logo {
