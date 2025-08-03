@@ -193,9 +193,9 @@ a, a:visited {
 .ps1-nav {
   align-self: flex-start;
   width: 100%;
-  max-width: 340px;
+  max-width: 420px;
   min-width: 180px;
-  padding: 1.5rem 2rem;
+  padding: 1rem 2rem;
   margin-bottom: 0;
   background: rgba(18, 30, 26, 0.92);
   border-radius: 18px;
@@ -211,7 +211,7 @@ a, a:visited {
   margin: 0; padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 2.3rem;
+  gap: 1.2rem;
 }
 
 /* --- Nav Buttons --- */
@@ -269,6 +269,7 @@ a, a:visited {
   max-width: 65vw;
   min-width: 180px;
   margin: 0 auto;
+  margin-left: -24px;
   animation: glitch 1.5s infinite;
   display: block;
   z-index: 2;
