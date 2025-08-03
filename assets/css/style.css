@@ -80,7 +80,7 @@ a, a:visited {
   background: url('assets/images/dust.png') repeat;
   background-size: cover;
   mix-blend-mode: difference;
-  opacity: 0.16; /* Adjust as needed for subtlety */
+  opacity: 1; /* Adjust as needed for subtlety */
 }
 
 .crt-border {
