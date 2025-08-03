@@ -225,8 +225,10 @@ a, a:visited {
 }
 .logo {
   width: 170px;
+  max-width: 90vw;
   margin-top: 60px;
   animation: glitch 1.5s infinite;
+  display: block;
 }
 @keyframes glitch {
   0% { transform: translate(0); }
