@@ -10,13 +10,17 @@
 </head>
 <body class="noscroll">
 
-  <!-- Loader and overlays: PRESERVE your original logic -->
-  <!--#include file="includes/glitch-loader.html"-->
-
+  <!-- Loader and overlays -->
+  <div id="glitch-loader">
+    <div class="crt-overlay"></div>
+    <div class="logo-flicker">
+      <img id="loader-logo" src="/assets/images/logos/main-logo.png" alt="Band Logo" />
+    </div>
+  </div>
   <div id="crt-noise-loader"></div>
   <div id="crt-noise-overlay"></div>
 
-  <!-- CRT Frame and Scanlines: NEW -->
+  <!-- CRT Frame and Scanlines: NEW, fixed corner transforms -->
   <div class="crt-frame">
     <div class="crt-corner tl"></div>
     <div class="crt-corner tr"></div>
@@ -28,33 +32,61 @@
 
   <!-- Main Content: Hidden during loader -->
   <main class="container" style="display:none;">
-    <img class="logo" src="/assets/images/main-logo.png" alt="Pineapple Bandits Logo">
+    <img class="logo" src="assets/images/main-logo.png" alt="Pineapple Bandits Logo">
     <div class="tagline">Press Start to Enter the World of Pineapple Bandits</div>
     <nav class="ps1-nav" aria-label="Main menu" style="display:none;">
       <ul>
         <li><a href="bio.html" class="menu-btn">Bio</a></li>
         <li><a href="music.html" class="menu-btn">Music</a></li>
-        <li><a href="tour.html" class="menu-btn">Tour</a></li>
-        <li><a href="merch.html" class="menu-btn">Merch</a></li>
+        <li><a href="shows.html" class="menu-btn">Shows</a></li>
+        <li><a href="media.html" class="menu-btn">Media</a></li>
         <li><a href="contact.html" class="menu-btn">Contact</a></li>
       </ul>
     </nav>
   </main>
 
-  <!-- Loader flicker and logic: Ensure main.js is loaded here -->
-  <script src="assets/js/main.js"></script>
-
-  <!-- Loader show/hide and nav reveal logic (purely for hiding nav during loader) -->
+  <!-- Loader flicker logic -->
   <script>
-    // This is called by main.js when loader is done!
-    window.loaderDone = function() {
-      document.body.classList.remove('noscroll');
-      document.querySelector('.container').style.display = '';
-      document.querySelector('.ps1-nav').style.display = '';
-      // Show pink noise overlay, hide green noise
-      document.getElementById('crt-noise-loader').style.display = 'none';
-      document.getElementById('crt-noise-overlay').style.display = 'block';
-    };
+    // Loader logo flicker
+    document.addEventListener('DOMContentLoaded', function() {
+      const altLogos = [
+        '/assets/images/logos/main-logo.png',
+        '/assets/images/logos/alt1.png',
+        '/assets/images/logos/alt2.png',
+        '/assets/images/logos/alt3.png',
+        '/assets/images/logos/alt4.png'
+      ];
+      const logo = document.getElementById('loader-logo');
+      let index = 0;
+      let interval = null;
+
+      if (logo) {
+        interval = setInterval(() => {
+          logo.src = altLogos[index % altLogos.length];
+          index++;
+        }, 400);
+      }
+
+      // Loader and overlay reveal logic
+      setTimeout(() => {
+        if (interval) clearInterval(interval);
+
+        // Hide loader & green noise
+        const loader = document.getElementById('glitch-loader');
+        const noiseLoader = document.getElementById('crt-noise-loader');
+        const pinkNoise = document.getElementById('crt-noise-overlay');
+        if(loader) loader.style.display = 'none';
+        if(noiseLoader) noiseLoader.style.display = 'none';
+        if(pinkNoise) pinkNoise.style.display = 'block';
+
+        // Re-enable scrolling and show main content/nav
+        document.body.classList.remove('noscroll');
+        const main = document.querySelector('.container');
+        const nav = document.querySelector('.ps1-nav');
+        if(main) main.style.display = '';
+        if(nav) nav.style.display = '';
+      }, 3000); // Adjust loader duration as needed
+    });
   </script>
 
   <!-- CRT collapse transition on nav click -->
