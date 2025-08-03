@@ -337,3 +337,88 @@ a, a:visited {
 .logo {
   margin-top: 0;
 }
+/* --- CRT-safe padding to keep content inside border/frame --- */
+.container {
+  padding: 5vh 6vw !important;
+  box-sizing: border-box;
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: none;
+  z-index: 1;
+}
+
+/* Side-nav stays away from CRT edges */
+.side-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-width: 220px;
+  max-width: 320px;
+  margin-right: 4vw;
+  margin-left: 1vw;
+  z-index: 2;
+}
+
+/* Tagline doesn't get cut */
+.tagline {
+  font-size: 2.5rem;
+  margin-bottom: 2.5rem;
+  margin-top: 0;
+  text-align: left;
+  white-space: normal;
+  word-break: break-word;
+  max-width: 95%;
+}
+
+/* Central logo area stays away from border */
+.main-logo-area {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  padding-right: 2vw;
+}
+
+.logo {
+  width: 480px;
+  max-width: 65vw;
+  min-width: 220px;
+  margin: 0 auto;
+  display: block;
+  z-index: 2;
+}
+
+/* Responsive: keep everything away from CRT frame on mobile */
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 2vh 2vw !important;
+  }
+  .side-nav {
+    align-items: center;
+    margin: 0 0 2vh 0;
+    min-width: unset;
+    max-width: 95vw;
+  }
+  .main-logo-area {
+    justify-content: center;
+    padding: 0;
+  }
+  .logo {
+    width: 70vw;
+    max-width: 95vw;
+  }
+  .tagline {
+    font-size: 1.5rem;
+    text-align: center;
+    max-width: 98vw;
+  }
+}
