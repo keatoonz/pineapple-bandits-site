@@ -240,8 +240,8 @@ a, a:visited {
     border-color 0.16s,
     color 0.14s;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  overflow: visible;
+  text-overflow: unset;
 }
 
 .ps1-nav .menu-btn:focus,
