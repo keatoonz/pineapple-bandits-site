@@ -4,12 +4,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const noiseLoader = document.getElementById('crt-noise-loader');
   const pinkNoise = document.getElementById('crt-noise-overlay');
   const altLogos = [
-    'assets/logos/main-logo.png',
-    'assets/logos/alt1.png',
-    'assets/logos/alt2.png',
-    'assets/logos/alt3.png',
-    'assets/logos/alt4.png'
-  ];
+  '/assets/images/logos/main-logo.png',
+  '/assets/images/logos/alt1.png',
+  '/assets/images/logos/alt2.png',
+  '/assets/images/logos/alt3.png',
+  '/assets/images/logos/alt4.png'
+];
 
   // Prevent scrolling and force scroll to top during loader
   document.documentElement.classList.add('noscroll');
