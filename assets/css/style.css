@@ -22,6 +22,7 @@ a, a:visited {
 .ps1-nav .menu-btn:hover {
   cursor: url('../images/cursor2.png') 16 16, pointer;
 }
+
 /* --- Loader Styles (green/pink overlays) --- */
 #glitch-loader {
   background: #fff;
@@ -70,28 +71,27 @@ a, a:visited {
   100% { background-position: 100px 100px; }
 }
 
-/* --- CRT Frame and Scanlines (NEW) --- */
+/* --- CRT Frame and Scanlines --- */
 .crt-dust {
   position: fixed;
   pointer-events: none;
-  z-index: 101; /* Below border but above main content */
+  z-index: 101;
   top: 0; left: 0;
   width: 100vw;
   height: 100vh;
   background: url('../images/dust.png') repeat;
   background-size: cover;
   mix-blend-mode: difference;
-  opacity: 0.18; /* Adjust as needed for subtlety */
+  opacity: 0.18;
 }
-
 .crt-border {
   position: fixed;
   pointer-events: none;
-  z-index: 102; /* On top of dust and content, but below modals/loader */
+  z-index: 102;
   top: 0; left: 0;
   width: 100vw;
   height: 100vh;
-  object-fit: fill; /* Use 'contain' if you want to preserve aspect ratio */
+  object-fit: fill;
   user-drag: none;
   user-select: none;
 }
@@ -148,29 +148,73 @@ a, a:visited {
   100% { clip-path: inset(50% 0 50% 0); opacity: 0.82; }
 }
 
-/* --- PS1 Main Menu --- */
-.ps1-nav {
-  margin-top: 0;
+/* --- Main Layout --- */
+.container {
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  padding: 7vh 10vw;
+  background: none;
+  z-index: 1;
+}
+
+/* --- Side Nav --- */
+.side-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-width: 180px;
+  max-width: 240px;
+  margin-right: 4vw;
+  margin-left: 1vw;
   z-index: 2;
-  background: rgba(18, 30, 26, 0.92); /* a bit more opaque */
+}
+
+/* --- Tagline --- */
+.tagline {
+  font-size: 2.7rem;
+  margin-bottom: 1.2rem;
+  margin-top: 0;
+  color: #00ffcc;
+  text-shadow: 0 0 10px #00ffcc;
+  text-align: left;
+  white-space: normal;
+  word-break: break-word;
+  max-width: 90%;
+}
+
+/* --- Nav Box --- */
+.ps1-nav {
+  align-self: flex-start;
+  width: 100%;
+  max-width: 340px;
+  min-width: 180px;
+  padding: 1.5rem 2rem;
+  margin-bottom: 0;
+  background: rgba(18, 30, 26, 0.92);
   border-radius: 18px;
-  padding: 2.5rem 2rem;
   box-shadow: 0 0 24px #0ff4, 0 0 0 2px #0ff6 inset;
   border: 2px solid #0ff6;
-  max-width: 340px;
-  width: 100%;
   box-sizing: border-box;
-  min-width: 260px;
   filter: contrast(1.25) brightness(1.04);
   user-select: none;
 }
+
 .ps1-nav ul {
   list-style: none;
   margin: 0; padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 2.3rem; /* more vertical space between menu items */
+  gap: 2.3rem;
 }
+
+/* --- Nav Buttons --- */
 .ps1-nav .menu-btn {
   display: block;
   width: 100%;
@@ -179,7 +223,7 @@ a, a:visited {
   border-radius: 6px;
   color: #f1f1f1;
   font-size: 3rem;
-  padding: 1.5rem 3rem; /* more padding */
+  padding: 1.5rem 3rem;
   letter-spacing: 0.11em;
   text-shadow: 0 0 4px #0ffb, 0 0 1px #000a;
   text-align: left;
@@ -195,7 +239,11 @@ a, a:visited {
     background 0.16s,
     border-color 0.16s,
     color 0.14s;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
+
 .ps1-nav .menu-btn:focus,
 .ps1-nav .menu-btn:hover,
 .ps1-nav li.selected .menu-btn {
@@ -206,384 +254,32 @@ a, a:visited {
   text-shadow: 0 0 7px #fff, 0 0 2px #0ff9;
 }
 
-/* Main layout */
-.container {
-  /* Removed background: #181818; */
-  min-height: 100vh;
-  min-width: 100vw;
+/* --- Main Logo Area --- */
+.main-logo-area {
+  flex: 1;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: relative;
-  box-sizing: border-box;
-  padding-bottom: 60px;
-}
-
-.logo {
-  width: 190px;
-  max-width: 80vw;
-  margin-top: 40px;
- /* margin-bottom: 48px; /* add space below logo */
-  animation: glitch 1.5s infinite;
-  display: block;
-  z-index: 2;
-}
-.tagline {
-  margin-top: 30px;
-  font-size: 3rem;
-  color: #00ffcc;
-  text-shadow: 0 0 10px #00ffcc;
-  text-align: center;
-}
-/* Responsive */
-@media (max-width: 700px) {
-  .container { padding-bottom: 20px; }
-  .logo { width: 100px; margin-bottom: 28px; }
-  .ps1-nav { min-width: 150px; padding: 1.2rem 0.7rem; }
-  .ps1-nav ul { gap: 1.2rem; }
-  .ps1-nav .menu-btn { font-size: 0.72rem; padding: 0.7rem 1.2rem; }
-}
-/* --- MAIN FLEX LAYOUT: NAV+TAGLINE LEFT, LOGO CENTER --- */
-.container {
-  min-height: 100vh;
-  min-width: 100vw;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  box-sizing: border-box;
+  min-width: 0;
   padding: 0;
-  background: none;
-}
-
-/* Side nav layout */
-.side-nav {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  min-width: 320px;
-  margin-right: 4vw;
-  z-index: 2;
-}
-
-/* Tagline above nav */
-.tagline {
-  font-size: 3rem;
-  margin-bottom: 2.5rem;
-  color: #00ffcc;
-  text-shadow: 0 0 10px #00ffcc;
-  text-align: left;
-  margin-top: 0;
-}
-
-/* Main logo big and central */
-.main-logo-area {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 0;
 }
 
 .logo {
-  width: 520px;
-  max-width: 80vw;
+  width: 500px;
+  max-width: 65vw;
+  min-width: 180px;
   margin: 0 auto;
   animation: glitch 1.5s infinite;
   display: block;
   z-index: 2;
 }
 
-/* Nav button font size and padding for better fill */
-.ps1-nav .menu-btn {
-  font-size: 2rem;
-  padding: 1.5rem 3rem;
-}
-
-/* Responsive for mobile/tablet */
+/* --- Responsive: Mobile/Tablet --- */
 @media (max-width: 900px) {
   .container {
     flex-direction: column;
     align-items: stretch;
-    padding: 0 1vw;
-  }
-  .side-nav {
-    flex-direction: column;
-    align-items: center;
-    margin-right: 0;
-    margin-bottom: 3vh;
-    min-width: unset;
-  }
-  .main-logo-area {
-    justify-content: center;
-  }
-  .logo {
-    width: 70vw;
-    max-width: 95vw;
-  }
-  .tagline {
-    font-size: 2rem;
-    text-align: center;
-  }
-  .ps1-nav {
-    max-width: 100vw;
-  }
-}
-
-/* (OPTIONAL) Remove old logo margin and old tagline alignment if needed */
-.logo {
-  margin-top: 0;
-}
-/* --- CRT-safe padding to keep content inside border/frame --- */
-.container {
-  padding: 5vh 6vw !important;
-  box-sizing: border-box;
-  min-height: 100vh;
-  min-width: 100vw;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  background: none;
-  z-index: 1;
-}
-
-/* Side-nav stays away from CRT edges */
-.side-nav {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  min-width: 220px;
-  max-width: 320px;
-  margin-right: 4vw;
-  margin-left: 1vw;
-  z-index: 2;
-}
-
-/* Tagline doesn't get cut */
-.tagline {
-  font-size: 2.5rem;
-  margin-bottom: 2.5rem;
-  margin-top: 0;
-  text-align: left;
-  white-space: normal;
-  word-break: break-word;
-  max-width: 95%;
-}
-
-/* Central logo area stays away from border */
-.main-logo-area {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 0;
-  padding-right: 2vw;
-}
-
-.logo {
-  width: 480px;
-  max-width: 65vw;
-  min-width: 220px;
-  margin: 0 auto;
-  display: block;
-  z-index: 2;
-}
-
-/* Responsive: keep everything away from CRT frame on mobile */
-@media (max-width: 900px) {
-  .container {
-    flex-direction: column;
-    align-items: stretch;
-    padding: 2vh 2vw !important;
-  }
-  .side-nav {
-    align-items: center;
-    margin: 0 0 2vh 0;
-    min-width: unset;
-    max-width: 95vw;
-  }
-  .main-logo-area {
-    justify-content: center;
-    padding: 0;
-  }
-  .logo {
-    width: 70vw;
-    max-width: 95vw;
-  }
-  .tagline {
-    font-size: 1.5rem;
-    text-align: center;
-    max-width: 98vw;
-  }
-}
-/* --- CRT-safe padding to keep content inside border/frame --- */
-.container {
-  padding: 7vh 9vw !important;
-  box-sizing: border-box;
-  min-height: 100vh;
-  min-width: 100vw;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  background: none;
-  z-index: 1;
-}
-
-/* Side-nav: narrower, more breathing room on left */
-.side-nav {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  min-width: 180px;
-  max-width: 240px;
-  margin-right: 4vw;
-  margin-left: 1vw;
-  z-index: 2;
-}
-
-/* Tagline: make sure it doesn't overflow */
-.tagline {
-  font-size: 2.3rem;
-  margin-bottom: 2.5rem;
-  margin-top: 0;
-  text-align: left;
-  white-space: normal;
-  word-break: break-word;
-  max-width: 90%;
-}
-
-/* Main logo area: nudge logo visually left by using justify-content: flex-start */
-.main-logo-area {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  min-width: 0;
-  padding-right: 2vw;
-}
-
-/* Logo: large, but keep some min/max width for safety */
-.logo {
-  width: 500px;
-  max-width: 65vw;
-  min-width: 180px;
-  margin: 0 0 0 2vw; /* nudge left */
-  display: block;
-  z-index: 2;
-}
-
-/* Responsive: keep everything away from CRT frame on mobile */
-@media (max-width: 900px) {
-  .container {
-    flex-direction: column;
-    align-items: stretch;
-    padding: 3vh 3vw !important;
-  }
-  .side-nav {
-    align-items: center;
-    margin: 0 0 2vh 0;
-    min-width: unset;
-    max-width: 95vw;
-  }
-  .main-logo-area {
-    justify-content: center;
-    padding: 0;
-  }
-  .logo {
-    width: 70vw;
-    max-width: 95vw;
-    margin: 0 auto;
-  }
-  .tagline {
-    font-size: 1.3rem;
-    text-align: center;
-    max-width: 98vw;
-  }
-}
-/* Make container padding slightly less, center logo better */
-.container {
-  padding: 7vh 10vw !important;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Main logo area: center logo horizontally */
-.main-logo-area {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 0;
-  padding-right: 0;
-  padding-left: 0;
-}
-
-.logo {
-  width: 500px;
-  max-width: 65vw;
-  min-width: 180px;
-  margin: 0 auto;
-  display: block;
-  z-index: 2;
-}
-
-/* Side nav: reduce max width and bottom space */
-.side-nav {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  min-width: 180px;
-  max-width: 240px;
-  margin-right: 4vw;
-  margin-left: 1vw;
-  z-index: 2;
-}
-
-/* Tagline: larger font, less bottom margin */
-.tagline {
-  font-size: 2.7rem;
-  margin-bottom: 1.2rem;
-  margin-top: 0;
-  text-align: left;
-  white-space: normal;
-  word-break: break-word;
-  max-width: 90%;
-}
-
-/* Nav box: shrink to fit contents */
-.ps1-nav {
-  align-self: flex-start;
-  width: 100%;
-  max-width: 340px;
-  min-width: 180px;
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-  margin-bottom: 0;
-  box-sizing: border-box;
-}
-
-.ps1-nav ul {
-  gap: 2.3rem;
-}
-
-/* Responsive: keep everything away from CRT frame on mobile */
-@media (max-width: 900px) {
-  .container {
-    flex-direction: column;
-    align-items: stretch;
-    padding: 3vh 3vw !important;
+    padding: 3vh 3vw;
   }
   .side-nav {
     align-items: center;
@@ -607,77 +303,15 @@ a, a:visited {
   }
   .ps1-nav {
     max-width: 100vw;
-  }
-}
-/* --- Refined main logo position --- */
-.main-logo-area {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start; /* Logo slightly left of center */
-  min-width: 0;
-  padding-left: 6vw; /* Middle ground: not too far left, not centered */
-  padding-right: 0;
-}
-
-/* Logo: center visually, not flush left */
-.logo {
-  width: 500px;
-  max-width: 65vw;
-  min-width: 180px;
-  margin: 0;
-  display: block;
-  z-index: 2;
-}
-
-/* Nav menu button: force text wrapping and no overflow */
-.ps1-nav .menu-btn {
-  font-size: 3rem;
-  padding: 1.5rem 3rem;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  white-space: normal;
-  text-align: left;
-  max-width: 100%;
-  box-sizing: border-box;
-}
-
-/* Nav box: allow enough width for long text but not too wide */
-.ps1-nav {
-  width: 100%;
-  max-width: 340px;
-  min-width: 180px;
-  box-sizing: border-box;
-  align-self: flex-start;
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-  margin-bottom: 0;
-}
-
-/* Responsive: fix nav button wrapping on small screens */
-@media (max-width: 900px) {
-  .main-logo-area {
-    justify-content: center;
-    padding-left: 0;
-  }
-  .logo {
-    width: 70vw;
-    max-width: 95vw;
-    margin: 0 auto;
-  }
-  .ps1-nav {
-    max-width: 380px;
+    padding: 1.2rem 0.7rem;
   }
   .ps1-nav .menu-btn {
-    font-size: 1.3rem;
+    font-size: 1.7rem;
     padding: 1rem 1rem;
   }
+  .ps1-nav ul {
+    gap: 1.2rem;
+  }
 }
-.ps1-nav .menu-btn {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  word-break: normal;
-  overflow-wrap: normal;
-  max-width: 100%;
-}
+
+/* --- End of Main Layout Cleanup --- */
