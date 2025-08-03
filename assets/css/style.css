@@ -70,7 +70,30 @@ a, a:visited {
 }
 
 /* --- CRT Frame and Scanlines (NEW) --- */
+.crt-dust {
+  position: fixed;
+  pointer-events: none;
+  z-index: 101; /* Below border but above main content */
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url('assets/images/dust.png') repeat;
+  background-size: cover;
+  mix-blend-mode: difference;
+  opacity: 0.16; /* Adjust as needed for subtlety */
+}
 
+.crt-border {
+  position: fixed;
+  pointer-events: none;
+  z-index: 102; /* On top of dust and content, but below modals/loader */
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: fill; /* Use 'contain' if you want to preserve aspect ratio */
+  user-drag: none;
+  user-select: none;
+}
 .crt-scanlines {
   pointer-events: none;
   position: fixed;
