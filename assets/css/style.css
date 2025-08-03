@@ -666,10 +666,10 @@ a, a:visited {
     margin: 0 auto;
   }
   .ps1-nav {
-    max-width: 100vw;
+    max-width: 380px;
   }
   .ps1-nav .menu-btn {
-    font-size: 1.7rem;
+    font-size: 1.3rem;
     padding: 1rem 1rem;
   }
 }
