@@ -34,20 +34,21 @@
   <main class="container" style="display:none;">
     <img class="logo" src="assets/logos/main-logo.png" alt="Pineapple Bandits Logo">
     <div class="tagline">Press Start to Enter the World of Pineapple Bandits</div>
-   <nav class="ps1-nav" aria-label="Main menu">
-  <ul>
-    <li><a href="bio.html" class="menu-btn">Bio</a></li>
-    <li><a href="music.html" class="menu-btn">Music</a></li>
-    <li><a href="tour.html" class="menu-btn">Tour</a></li>
-    <li><a href="merch.html" class="menu-btn">Merch</a></li>
-    <li><a href="contact.html" class="menu-btn">Contact</a></li>
-  </ul>
-</nav>
+    <nav class="ps1-nav" aria-label="Main menu">
+      <ul>
+        <li><a href="bio.html" class="menu-btn">Bio</a></li>
+        <li><a href="music.html" class="menu-btn">Music</a></li>
+        <li><a href="tour.html" class="menu-btn">Tour</a></li>
+        <li><a href="merch.html" class="menu-btn">Merch</a></li>
+        <li><a href="contact.html" class="menu-btn">Contact</a></li>
+      </ul>
+    </nav>
   </main>
-<!-- Dust overlay (under border) -->
-<div class="crt-dust"></div>
-<!-- Border overlay (on top) -->
-<img class="crt-border" src="assets/images/border.png" alt="CRT border" draggable="false" />
+  <!-- Dust overlay (under border) -->
+  <div class="crt-dust"></div>
+  <!-- Border overlay (on top) -->
+  <img class="crt-border" src="assets/images/border.png" alt="CRT border" draggable="false" />
+  
   <!-- Loader flicker logic -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -59,34 +60,39 @@
         'assets/logos/alt4.png'
       ];
       const logo = document.getElementById('loader-logo');
-      let index = 0;
       let interval = null;
 
       if (logo) {
+        // Always reset to first logo and start at alt1
+        logo.src = altLogos[0];
+        let index = 1;
         interval = setInterval(() => {
           logo.src = altLogos[index % altLogos.length];
           index++;
         }, 400);
+
+        setTimeout(() => {
+          if (interval) clearInterval(interval);
+
+          // Hide loader & green noise
+          const loader = document.getElementById('glitch-loader');
+          const noiseLoader = document.getElementById('crt-noise-loader');
+          const pinkNoise = document.getElementById('crt-noise-overlay');
+          if(loader) loader.style.display = 'none';
+          if(noiseLoader) noiseLoader.style.display = 'none';
+          if(pinkNoise) pinkNoise.style.display = 'block';
+
+          // Reset logo to main logo for next loader
+          logo.src = altLogos[0];
+
+          // Re-enable scrolling and show main content/nav
+          document.body.classList.remove('noscroll');
+          const main = document.querySelector('.container');
+          const nav = document.querySelector('.ps1-nav');
+          if(main) main.style.display = '';
+          if(nav) nav.style.display = '';
+        }, 3000); // Adjust loader duration if needed
       }
-
-      setTimeout(() => {
-        if (interval) clearInterval(interval);
-
-        // Hide loader & green noise
-        const loader = document.getElementById('glitch-loader');
-        const noiseLoader = document.getElementById('crt-noise-loader');
-        const pinkNoise = document.getElementById('crt-noise-overlay');
-        if(loader) loader.style.display = 'none';
-        if(noiseLoader) noiseLoader.style.display = 'none';
-        if(pinkNoise) pinkNoise.style.display = 'block';
-
-        // Re-enable scrolling and show main content/nav
-        document.body.classList.remove('noscroll');
-        const main = document.querySelector('.container');
-        const nav = document.querySelector('.ps1-nav');
-        if(main) main.style.display = '';
-        if(nav) nav.style.display = '';
-      }, 3000); // Adjust loader duration if needed
     });
   </script>
 
