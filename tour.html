@@ -9,14 +9,25 @@
   <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body class="noscroll">
-  <!-- Loader Start -->
+  <!-- Loader and overlays -->
   <div id="glitch-loader">
     <div class="crt-overlay"></div>
     <div class="logo-flicker">
       <img id="loader-logo" src="assets/logos/main-logo.png" alt="Band Logo" />
     </div>
   </div>
-  <!-- Loader End -->
+  <div id="crt-noise-loader"></div>
+  <div id="crt-noise-overlay"></div>
+
+  <!-- CRT Frame and Scanlines -->
+  <div class="crt-frame">
+    <div class="crt-corner tl"></div>
+    <div class="crt-corner tr"></div>
+    <div class="crt-corner bl"></div>
+    <div class="crt-corner br"></div>
+  </div>
+  <div class="crt-scanlines"></div>
+  <div id="crt-collapse"></div>
 
   <main class="container" style="display:none;">
     <div class="side-nav">
@@ -70,6 +81,10 @@
       </div>
     </section>
   </main>
+  <div class="crt-dust"></div>
+  <img class="crt-border" src="assets/images/border.png" alt="CRT border" draggable="false" />
+
+  <script src="assets/js/crt-transition.js"></script>
   <script src="assets/js/loader-nav.js" defer></script>
 </body>
 </html>
