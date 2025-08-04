@@ -1,4 +1,3 @@
-// Loader logic for all pages
 function runLoaderLogic() {
   const altLogos = [
     'assets/logos/main-logo.png',
@@ -42,7 +41,7 @@ window.addEventListener('pageshow', function(event) {
   }
 });
 
-// Nav transition logic for all pages
+// Nav transition logic (NO loader here)
 document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('.ps1-nav a.menu-btn').forEach(function(link) {
     link.addEventListener('click', function(e) {
@@ -52,37 +51,8 @@ document.addEventListener('DOMContentLoaded', function() {
         e.preventDefault();
         return;
       }
-      e.preventDefault();
-      const loader = document.getElementById('glitch-loader');
-      const logo = document.getElementById('loader-logo');
-      const altLogos = [
-        'assets/logos/main-logo.png',
-        'assets/logos/alt1.png',
-        'assets/logos/alt2.png',
-        'assets/logos/alt3.png',
-        'assets/logos/alt4.png'
-      ];
-      if (loader) loader.style.display = '';
-      document.body.classList.add('noscroll');
-      document.documentElement.classList.add('noscroll');
-      if (logo) {
-        logo.src = altLogos[0];
-        let index = 1;
-        let interval = setInterval(() => {
-          logo.src = altLogos[index % altLogos.length];
-          index++;
-        }, 400);
-
-        setTimeout(() => {
-          clearInterval(interval);
-          if (loader) loader.style.display = 'none';
-          document.body.classList.remove('noscroll');
-          document.documentElement.classList.remove('noscroll');
-          window.location = destination;
-        }, 3000);
-      } else {
-        window.location = destination;
-      }
+      // Let CRT collapse handle the animation and navigation.
+      // No loader logic here anymore!
     });
   });
 });
