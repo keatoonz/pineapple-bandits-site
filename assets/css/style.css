@@ -178,11 +178,11 @@ a, a:visited {
 
 /* --- Tagline --- */
 .tagline {
-  font-size: 3rem;
+  font-size: 3.5rem;
   margin-bottom: 1.2rem;
   margin-top: 0;
   margin-left: 16px;
-  color: #00ffcc;
+  color: #000;
   text-shadow: 0 0 10px #00ffcc;
   text-align: left;
   white-space: normal;
@@ -197,7 +197,7 @@ a, a:visited {
   max-width: 420px;
   min-width: 220px;
   padding: 1rem 2rem;
-  margin-top: -8px;
+  margin-top: -14px; /* negative moves up, adjust as needed */
   margin-bottom: 0;
   background: rgba(18, 30, 26, 0.92);
   border-radius: 18px;
