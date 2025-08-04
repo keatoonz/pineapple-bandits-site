@@ -197,7 +197,7 @@ a, a:visited {
   max-width: 420px;
   min-width: 220px;
   padding: 1rem 2rem;
-  margin-top: -14px; /* negative moves up, adjust as needed */
+  margin-top: -24px; /* negative moves up, adjust as needed */
   margin-bottom: 0;
   background: rgba(18, 30, 26, 0.92);
   border-radius: 18px;
