@@ -1,30 +1,31 @@
-// CRT Collapse and Loader Transition
 document.querySelectorAll('.ps1-nav .menu-btn').forEach(btn => {
   btn.addEventListener('click', function(e) {
     e.preventDefault();
 
-    // Start CRT collapse
     const crtCollapse = document.getElementById('crt-collapse');
     const loader = document.getElementById('glitch-loader');
     const targetHref = btn.href;
 
-    // Show CRT collapse animation
+    // Make sure loader is hidden
+    if (loader) loader.style.display = 'none';
+
+    // Start CRT collapse
     crtCollapse.classList.add('collapse-anim');
 
-    // Listen for animation end (only once)
+    // Listen for animation end
     function handleCollapseEnd() {
-      // Show glitch loader (assumes your loader is hidden by default)
+      crtCollapse.removeEventListener('animationend', handleCollapseEnd);
+
+      // Show loader AFTER CRT collapse finishes
       if (loader) loader.style.display = 'flex';
 
       // Optionally hide CRT collapse animation
       crtCollapse.classList.remove('collapse-anim');
 
-      // After loader, go to target page
+      // Proceed to new page after loader duration
       setTimeout(() => {
         window.location = targetHref;
-      }, 1800); // Adjust to match your loader's duration
-
-      crtCollapse.removeEventListener('animationend', handleCollapseEnd);
+      }, 1800); // match this to your loader's visible duration
     }
 
     crtCollapse.addEventListener('animationend', handleCollapseEnd);
