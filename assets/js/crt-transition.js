@@ -3,17 +3,18 @@ document.querySelectorAll('.ps1-nav .menu-btn').forEach(btn => {
     e.preventDefault();
 
     const crtCollapse = document.getElementById('crt-collapse');
+    const loader = document.getElementById('glitch-loader');
     const targetHref = btn.href;
 
-    // Only play CRT collapse animation on departure
+    if (loader) loader.style.display = 'none'; // Always hide loader first!
+
     crtCollapse.style.display = 'block';
     crtCollapse.classList.add('collapse-anim');
 
     function handleCollapseEnd() {
       crtCollapse.removeEventListener('animationend', handleCollapseEnd);
       crtCollapse.style.display = 'none';
-      // DIRECTLY navigate after CRT collapse; DO NOT show loader here!
-      window.location = targetHref;
+      window.location = targetHref; // Navigate after CRT collapse
     }
 
     crtCollapse.addEventListener('animationend', handleCollapseEnd);
