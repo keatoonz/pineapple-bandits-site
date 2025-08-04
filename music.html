@@ -7,49 +7,52 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/glitch-loader.css">
   <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&display=swap" rel="stylesheet">
-  <script src="assets/js/main.js" defer></script>
-  <script src="assets/js/glitch-loader.js" defer></script>
 </head>
-<body>
-  <!-- Glitch Loader Start -->
+<body class="noscroll">
+  <!-- Loader Start -->
   <div id="glitch-loader">
     <div class="crt-overlay"></div>
     <div class="logo-flicker">
-      <img src="assets/images/logos/main-logo.png" alt="Band Logo" />
-      <img src="assets/images/logos/alt1.png" alt="Flicker 1" />
-      <img src="assets/images/logos/alt2.png" alt="Flicker 2" />
-      <img src="assets/images/logos/alt3.png" alt="Flicker 3" />
-      <img src="assets/images/logos/alt4.png" alt="Flicker 4" />
+      <img id="loader-logo" src="assets/logos/main-logo.png" alt="Band Logo" />
     </div>
   </div>
-  <!-- Glitch Loader End -->
+  <!-- Loader End -->
 
-  <section class="section music-section">
-    <div class="container">
-      <h1 class="page-title glitch-text" data-text="Music">Music</h1>
-      <p class="linktree-intro">Stream our music on your platform of choice:</p>
-      <a href="https://linktr.ee/pineapplebandits" class="linktree-btn glitch-text" target="_blank">Go to Linktree</a>
-
-      <div class="music-grid">
-        <!-- Placeholder Embedded Video 1 -->
-        <div class="music-card">
-          <iframe width="100%" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
-          <h3 class="track-title">Track 01 - Placeholder</h3>
-        </div>
-
-        <!-- Placeholder Embedded Video 2 -->
-        <div class="music-card">
-          <iframe width="100%" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
-          <h3 class="track-title">Track 02 - Placeholder</h3>
-        </div>
-
-        <!-- Placeholder Embedded Video 3 -->
-        <div class="music-card">
-          <iframe width="100%" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
-          <h3 class="track-title">Track 03 - Placeholder</h3>
+  <main class="container" style="display:none;">
+    <div class="side-nav">
+      <div class="tagline">Main Menu</div>
+      <nav class="ps1-nav" aria-label="Main menu">
+        <ul>
+          <li><a href="bio.html" class="menu-btn">Bio</a></li>
+          <li><a href="music.html" class="menu-btn">Music</a></li>
+          <li><a href="tour.html" class="menu-btn">Tour</a></li>
+          <li><a href="merch.html" class="menu-btn">Merch</a></li>
+          <li><a href="contact.html" class="menu-btn">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    <section class="section music-section">
+      <div class="container">
+        <h1 class="page-title glitch-text" data-text="Music">Music</h1>
+        <p class="linktree-intro">Stream our music on your platform of choice:</p>
+        <a href="https://linktr.ee/pineapplebandits" class="linktree-btn glitch-text" target="_blank">Go to Linktree</a>
+        <div class="music-grid">
+          <div class="music-card">
+            <iframe width="100%" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+            <h3 class="track-title">Track 01 - Placeholder</h3>
+          </div>
+          <div class="music-card">
+            <iframe width="100%" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+            <h3 class="track-title">Track 02 - Placeholder</h3>
+          </div>
+          <div class="music-card">
+            <iframe width="100%" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+            <h3 class="track-title">Track 03 - Placeholder</h3>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
+  <script src="assets/js/loader-nav.js" defer></script>
 </body>
 </html>
