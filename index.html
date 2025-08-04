@@ -116,13 +116,18 @@ window.addEventListener('pageshow', function(event) {
   }
 });
 </script>
-  <script>
+<script>
 document.addEventListener('DOMContentLoaded', function() {
   // Intercept nav links for loader animation
   document.querySelectorAll('.ps1-nav a.menu-btn').forEach(function(link) {
     link.addEventListener('click', function(e) {
-      e.preventDefault();
       var destination = this.href;
+      // Prevent reloading the current page
+      if (window.location.href.split('#')[0] === destination) {
+        e.preventDefault();
+        return;
+      }
+      e.preventDefault();
 
       // Show loader and green noise, hide pink noise
       const loader = document.getElementById('glitch-loader');
