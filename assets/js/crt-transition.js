@@ -6,22 +6,25 @@ document.querySelectorAll('.ps1-nav .menu-btn').forEach(btn => {
     const loader = document.getElementById('glitch-loader');
     const targetHref = btn.href;
 
-    // 1. Show CRT collapse OVER all content (including loader)
+    // 1. Hide loader in case page was just loaded
+    if (loader) loader.style.display = 'none';
+
+    // 2. Bring CRT collapse to front and start animation
     crtCollapse.style.display = 'block';
     crtCollapse.classList.add('collapse-anim');
 
-    // 2. Wait for CRT collapse animation to finish
+    // 3. After CRT collapse animation ends...
     function handleCollapseEnd() {
       crtCollapse.removeEventListener('animationend', handleCollapseEnd);
 
-      // 3. Show loader, hide CRT collapse (so loader is now visible)
+      // 4. Hide CRT collapse, show loader
       crtCollapse.style.display = 'none';
-      loader.style.display = 'flex';
+      if (loader) loader.style.display = 'flex';
 
-      // 4. Wait for loader animation, then go to new page
+      // 5. Wait for loader animation, then navigate
       setTimeout(() => {
         window.location = targetHref;
-      }, 3000); // 3s = your loader duration
+      }, 3000); // duration matches loader time
     }
 
     crtCollapse.addEventListener('animationend', handleCollapseEnd);
