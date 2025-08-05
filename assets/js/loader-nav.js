@@ -1,4 +1,4 @@
-function runLoaderLogic() {
+document.addEventListener('DOMContentLoaded', function() {
   const altLogos = [
     'assets/logos/main-logo.png',
     'assets/logos/alt1.png',
@@ -8,51 +8,47 @@ function runLoaderLogic() {
   ];
   const logo = document.getElementById('loader-logo');
   const loader = document.getElementById('glitch-loader');
-  let interval = null;
+  const noiseLoader = document.getElementById('crt-noise-loader');
+  const pinkNoise = document.getElementById('crt-noise-overlay');
+  const main = document.querySelector('.container');
 
-  if(loader) loader.style.display = '';
-  document.body.classList.add('noscroll');
-  document.documentElement.classList.add('noscroll');
+  let flickerInterval;
 
-  if (logo) {
-    logo.src = altLogos[0];
-    let index = 1;
-    if (interval) clearInterval(interval);
-    interval = setInterval(() => {
-      logo.src = altLogos[index % altLogos.length];
-      index++;
-    }, 400);
+  function runLoader() {
+    if (loader) loader.style.display = '';
+    if (noiseLoader) noiseLoader.style.display = '';
+    if (pinkNoise) pinkNoise.style.display = 'none';
+
+    document.body.classList.add('noscroll');
+    document.documentElement.classList.add('noscroll');
+
+    if (logo) {
+      logo.src = altLogos[0];
+      let index = 1;
+      flickerInterval = setInterval(() => {
+        logo.src = altLogos[index % altLogos.length];
+        index++;
+      }, 400);
+    }
 
     setTimeout(() => {
-      if (interval) clearInterval(interval);
-      if(loader) loader.style.display = 'none';
+      clearInterval(flickerInterval);
+      if (loader) loader.style.display = 'none';
+      if (noiseLoader) noiseLoader.style.display = 'none';
+      if (pinkNoise) pinkNoise.style.display = 'block';
+
       document.body.classList.remove('noscroll');
       document.documentElement.classList.remove('noscroll');
-      const main = document.querySelector('.container');
-      if(main) main.style.display = '';
+      if (main) main.style.display = '';
     }, 3000);
   }
-}
 
-document.addEventListener('DOMContentLoaded', runLoaderLogic);
-window.addEventListener('pageshow', function(event) {
-  if (event.persisted) {
-    runLoaderLogic();
-  }
-});
+  runLoader();
 
-// Nav transition logic (NO loader here)
-document.addEventListener('DOMContentLoaded', function() {
-  document.querySelectorAll('.ps1-nav a.menu-btn').forEach(function(link) {
-    link.addEventListener('click', function(e) {
-      var destination = this.href;
-      // Prevent reloading the current page
-      if (window.location.href.split('#')[0] === destination) {
-        e.preventDefault();
-        return;
-      }
-      // Let CRT collapse handle the animation and navigation.
-      // No loader logic here anymore!
-    });
+  // Handle bfcache restore
+  window.addEventListener('pageshow', function(e) {
+    if (e.persisted) {
+      runLoader();
+    }
   });
 });
