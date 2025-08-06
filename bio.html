@@ -5,7 +5,6 @@
   <title>Bio | Pineapple Bandits</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/glitch-loader.css">
   <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&display=swap" rel="stylesheet">
   <style>
     /* Bio page specific styles */
@@ -50,8 +49,8 @@
       width: 100%;
       height: auto;
       border-radius: 12px;
-      box-shadow: 0 0 20px #0ff4, 0 0 40px #0ff2;
-      border: 2px solid #0ff6;
+      box-shadow: 0 0 20px #00ff41, 0 0 40px #00ff41;
+      border: 2px solid #00ff41;
     }
     
     .bio-text {
@@ -61,15 +60,15 @@
       padding: 2rem;
       background: rgba(18, 30, 26, 0.85);
       border-radius: 18px;
-      box-shadow: 0 0 24px #0ff4, 0 0 0 2px #0ff6 inset;
-      border: 2px solid #0ff6;
+      box-shadow: 0 0 24px #00ff41, 0 0 0 2px #00ff41 inset;
+      border: 2px solid #00ff41;
     }
     
     .page-title {
       font-size: 4rem;
       margin-bottom: 1.5rem;
-      color: #00ffcc;
-      text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
+      color: #00ff41;
+      text-shadow: 0 0 10px #00ff41, 0 0 20px #00ff41;
       text-align: center;
     }
     
@@ -77,14 +76,14 @@
       font-size: 1.2rem;
       line-height: 1.6;
       margin-bottom: 2rem;
-      text-shadow: 0 0 4px #0ffb;
+      text-shadow: 0 0 4px #00ff41;
     }
     
     .bio-details h2 {
-      color: #00ffcc;
+      color: #00ff41;
       font-size: 1.8rem;
       margin: 2rem 0 1rem 0;
-      text-shadow: 0 0 8px #00ffcc;
+      text-shadow: 0 0 8px #00ff41;
     }
     
     .bio-details ul {
@@ -95,22 +94,45 @@
     
     .bio-details li {
       padding: 0.5rem 0;
-      border-bottom: 1px solid #0ff3;
-      text-shadow: 0 0 4px #0ffb;
+      border-bottom: 1px solid #00ff41;
+      text-shadow: 0 0 4px #00ff41;
     }
     
     .bio-details p {
       line-height: 1.6;
-      text-shadow: 0 0 4px #0ffb;
+      text-shadow: 0 0 4px #00ff41;
     }
     
-    /* Override CRT effects to sit above content */
+    /* Override CRT effects z-index ordering */
+    #crt-noise-overlay {
+      z-index: 9998 !important; /* Below content - pink noise after loader */
+    }
+    
+    #crt-noise-loader {
+      z-index: 10000 !important; /* Green noise background during loader */
+      display: block !important; /* Ensure it's visible during loader */
+    }
+    
     .crt-dust {
-      z-index: 10102 !important;
+      z-index: 10102 !important; /* Above content */
     }
     
     .crt-scanlines {
-      z-index: 10103 !important;
+      z-index: 10103 !important; /* Above dust */
+    }
+    
+    .crt-frame {
+      z-index: 10104 !important; /* Above scanlines */
+    }
+    
+    /* Ensure loader works properly */
+    #glitch-loader {
+      z-index: 9999 !important; /* Below green noise */
+      background: transparent !important; /* Remove white background */
+    }
+    
+    #loader-logo {
+      z-index: 10001 !important; /* Above green noise */
     }
     
     /* Responsive design */
