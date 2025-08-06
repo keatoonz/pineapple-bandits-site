@@ -108,11 +108,6 @@
       z-index: 9998 !important; /* Below content - pink noise after loader */
     }
     
-    #crt-noise-loader {
-      z-index: 10000 !important; /* Green noise background during loader */
-      display: block !important; /* Ensure it's visible during loader */
-    }
-    
     .crt-dust {
       z-index: 10102 !important; /* Above content */
     }
@@ -124,21 +119,6 @@
     
     .crt-frame {
       z-index: 10104 !important; /* Above scanlines */
-    }
-    
-    /* Fix loader to show green noise background */
-    #glitch-loader {
-      z-index: 9999 !important; /* Below green noise */
-      background: transparent !important; /* Remove white background completely */
-    }
-    
-    #loader-logo {
-      z-index: 10001 !important; /* Above green noise */
-    }
-    
-    /* Override the main CSS loader background */
-    body #glitch-loader {
-      background: transparent !important;
     }
     
     /* Responsive design */
@@ -171,12 +151,12 @@
 <body>
   <!-- Loader and overlays -->
   <div id="glitch-loader">
+    <div id="crt-noise-loader"></div>
     <div class="crt-overlay"></div>
     <div class="logo-flicker">
       <img id="loader-logo" src="assets/logos/main-logo.png" alt="Band Logo" />
     </div>
   </div>
-  <div id="crt-noise-loader"></div>
   <div id="crt-noise-overlay"></div>
 
   <!-- CRT Frame and Scanlines -->
