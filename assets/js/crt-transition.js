@@ -6,10 +6,14 @@ document.querySelectorAll('.ps1-nav .menu-btn').forEach(btn => {
     const loader = document.getElementById('glitch-loader');
     const pinkNoise = document.getElementById('crt-noise-overlay');
     const noiseLoader = document.getElementById('crt-noise-loader');
+    const mainContent = document.querySelector('main.container');
     const targetHref = this.href;
 
     // Don't reload same page
     if (window.location.href.split('#')[0] === targetHref) return;
+
+    // Hide main content (logo and nav) immediately
+    if (mainContent) mainContent.style.display = 'none';
 
     // Hide pink, show green loader
     if (pinkNoise) pinkNoise.style.display = 'none';
