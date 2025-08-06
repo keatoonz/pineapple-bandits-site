@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bio | Pineapple Bandits</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/glitch-loader.css">
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Loader and overlays -->
+  <div id="glitch-loader">
+    <div class="crt-overlay"></div>
+    <div class="logo-flicker">
+      <img id="loader-logo" src="assets/logos/main-logo.png" alt="Band Logo" />
+    </div>
+  </div>
+  <div id="crt-noise-loader"></div>
+  <div id="crt-noise-overlay"></div>
+
+  <!-- CRT Frame and Scanlines -->
+  <div class="crt-frame">
+    <div class="crt-corner tl"></div>
+    <div class="crt-corner tr"></div>
+    <div class="crt-corner bl"></div>
+    <div class="crt-corner br"></div>
+  </div>
+  <div class="crt-scanlines"></div>
+  <div id="crt-collapse"></div>
+
+  <main class="container" style="display:none;">
+    <div class="side-nav">
+      <div class="tagline">Main Menu</div>
+      <nav class="ps1-nav" aria-label="Main menu">
+        <ul>
+          <li><a href="bio.html" class="menu-btn">Bio</a></li>
+          <li><a href="music.html" class="menu-btn">Music</a></li>
+          <li><a href="tour.html" class="menu-btn">Tour</a></li>
+          <li><a href="merch.html" class="menu-btn">Merch</a></li>
+          <li><a href="contact.html" class="menu-btn">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    <section class="section bio-section">
+      <div class="container">
+        <h1 class="page-title glitch-text" data-text="Bio">Bio</h1>
+        <p class="intro-text">
+          Pineapple Bandits are an electrifying four-piece alternative rock band hailing from [Your City]. Known for their energetic live shows, catchy hooks, and a penchant for pineapple-themed shenanigans, they've been making waves in the indie scene since 2022.
+        </p>
+        <div class="bio-details">
+          <h2>Band Members</h2>
+          <ul>
+            <li><strong>Jamie "Juice" Rivera</strong> – Vocals / Guitar</li>
+            <li><strong>Casey "Crush" Ling</strong> – Bass</li>
+            <li><strong>Morgan "Spikes" Lee</strong> – Drums</li>
+            <li><strong>Avery "Slice" Kim</strong> – Guitar / Keys</li>
+          </ul>
+          <h2>About</h2>
+          <p>
+            Blending influences from punk, surf, and classic alternative, Pineapple Bandits deliver a unique sound that’s both nostalgic and fresh. Their debut EP, "Fruit Fight," is available on all streaming platforms.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div class="crt-dust"></div>
+  <img class="crt-border" src="assets/images/border.png" alt="CRT border" draggable="false" />
+
+  <script src="assets/js/crt-transition.js"></script>
+  <script src="assets/js/loader-nav.js" defer></script>
+</body>
+</html>

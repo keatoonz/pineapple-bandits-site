@@ -7,8 +7,131 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/glitch-loader.css">
   <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* Bio page specific styles */
+    body {
+      overflow: auto !important; /* Ensure page is scrollable */
+      height: auto !important;
+    }
+    
+    html, body {
+      overflow: auto !important; /* Override any no-scroll settings */
+    }
+    
+    .container {
+      min-height: 100vh;
+      padding: 7vh 5vw;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      background: none;
+      z-index: 1;
+    }
+    
+    .bio-content {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .bio-layout {
+      display: flex;
+      gap: 4rem;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+    
+    .band-image {
+      flex: 0 0 400px;
+      max-width: 400px;
+    }
+    
+    .band-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 0 20px #0ff4, 0 0 40px #0ff2;
+      border: 2px solid #0ff6;
+    }
+    
+    .bio-text {
+      flex: 1;
+      min-width: 300px;
+      color: #f1f1f1;
+      padding: 2rem;
+      background: rgba(18, 30, 26, 0.85);
+      border-radius: 18px;
+      box-shadow: 0 0 24px #0ff4, 0 0 0 2px #0ff6 inset;
+      border: 2px solid #0ff6;
+    }
+    
+    .page-title {
+      font-size: 4rem;
+      margin-bottom: 1.5rem;
+      color: #00ffcc;
+      text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
+      text-align: center;
+    }
+    
+    .intro-text {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      text-shadow: 0 0 4px #0ffb;
+    }
+    
+    .bio-details h2 {
+      color: #00ffcc;
+      font-size: 1.8rem;
+      margin: 2rem 0 1rem 0;
+      text-shadow: 0 0 8px #00ffcc;
+    }
+    
+    .bio-details ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.5rem 0;
+    }
+    
+    .bio-details li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #0ff3;
+      text-shadow: 0 0 4px #0ffb;
+    }
+    
+    .bio-details p {
+      line-height: 1.6;
+      text-shadow: 0 0 4px #0ffb;
+    }
+    
+    /* Responsive design */
+    @media (max-width: 900px) {
+      .bio-layout {
+        flex-direction: column;
+        gap: 2rem;
+      }
+      
+      .band-image {
+        flex: none;
+        max-width: 100%;
+        align-self: center;
+      }
+      
+      .bio-text {
+        padding: 1.5rem;
+      }
+      
+      .page-title {
+        font-size: 2.5rem;
+      }
+      
+      .container {
+        padding: 3vh 3vw;
+      }
+    }
+  </style>
 </head>
-<body class="noscroll">
+<body>
   <!-- Loader and overlays -->
   <div id="glitch-loader">
     <div class="crt-overlay"></div>
@@ -30,36 +153,29 @@
   <div id="crt-collapse"></div>
 
   <main class="container" style="display:none;">
-    <div class="side-nav">
-      <div class="tagline">Main Menu</div>
-      <nav class="ps1-nav" aria-label="Main menu">
-        <ul>
-          <li><a href="bio.html" class="menu-btn">Bio</a></li>
-          <li><a href="music.html" class="menu-btn">Music</a></li>
-          <li><a href="tour.html" class="menu-btn">Tour</a></li>
-          <li><a href="merch.html" class="menu-btn">Merch</a></li>
-          <li><a href="contact.html" class="menu-btn">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-    <section class="section bio-section">
-      <div class="container">
-        <h1 class="page-title glitch-text" data-text="Bio">Bio</h1>
-        <p class="intro-text">
-          Pineapple Bandits are an electrifying four-piece alternative rock band hailing from [Your City]. Known for their energetic live shows, catchy hooks, and a penchant for pineapple-themed shenanigans, they've been making waves in the indie scene since 2022.
-        </p>
-        <div class="bio-details">
-          <h2>Band Members</h2>
-          <ul>
-            <li><strong>Jamie "Juice" Rivera</strong> – Vocals / Guitar</li>
-            <li><strong>Casey "Crush" Ling</strong> – Bass</li>
-            <li><strong>Morgan "Spikes" Lee</strong> – Drums</li>
-            <li><strong>Avery "Slice" Kim</strong> – Guitar / Keys</li>
-          </ul>
-          <h2>About</h2>
-          <p>
-            Blending influences from punk, surf, and classic alternative, Pineapple Bandits deliver a unique sound that’s both nostalgic and fresh. Their debut EP, "Fruit Fight," is available on all streaming platforms.
+    <section class="bio-content">
+      <div class="bio-layout">
+        <div class="band-image">
+          <img src="assets/images/band.jpg" alt="Pineapple Bandits Band Photo" />
+        </div>
+        <div class="bio-text">
+          <h1 class="page-title glitch-text" data-text="Bio">Bio</h1>
+          <p class="intro-text">
+            Pineapple Bandits are an electrifying four-piece alternative rock band hailing from [Your City]. Known for their energetic live shows, catchy hooks, and a penchant for pineapple-themed shenanigans, they've been making waves in the indie scene since 2022.
           </p>
+          <div class="bio-details">
+            <h2>Band Members</h2>
+            <ul>
+              <li><strong>Jamie "Juice" Rivera</strong> – Vocals / Guitar</li>
+              <li><strong>Casey "Crush" Ling</strong> – Bass</li>
+              <li><strong>Morgan "Spikes" Lee</strong> – Drums</li>
+              <li><strong>Avery "Slice" Kim</strong> – Guitar / Keys</li>
+            </ul>
+            <h2>About</h2>
+            <p>
+              Blending influences from punk, surf, and classic alternative, Pineapple Bandits deliver a unique sound that's both nostalgic and fresh. Their debut EP, "Fruit Fight," is available on all streaming platforms.
+            </p>
+          </div>
         </div>
       </div>
     </section>
