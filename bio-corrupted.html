@@ -256,6 +256,125 @@
           <p class="intro-text">
             Pineapple Bandits are what happens when four musicians get tired of polite music. Based in Sheffield and spiritually located somewhere between Corporation and an existential crisis, they make alt-rock for people who want to feel slightly attacked, but in a good way.
           </p>
+    
+    .bio-details ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.5rem 0;
+    }
+    
+    .bio-details li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #00ff41;
+      text-shadow: 0 0 4px #00ff41;
+    }
+    
+    .bio-details p {
+      line-height: 1.6;
+      text-shadow: 0 0 4px #00ff41;
+    }
+    
+    /* Override CRT effects z-index ordering */
+    #crt-noise-overlay {
+      z-index: 9998 !important; /* Below content - pink noise after loader */
+    }
+    
+    .crt-dust {
+      z-index: 10001 /*!important; /* Above content */
+    }
+    
+    .crt-scanlines {
+      z-index: 10002 !important; /* Above dust */
+    }
+    
+    .crt-frame {
+      z-index: 10210 /*!important; /* Above scanlines */
+    }
+    
+    /* Responsive design */
+    @media (max-width: 900px) {
+      .bio-layout {
+        flex-direction: column;
+        gap: 2rem;
+      }
+      
+      .band-image {
+        flex: none;
+        max-width: 100%;
+        align-self: center;
+      }
+      
+      .bio-nav {
+        margin-top: 1.5rem;
+        padding: 1rem;
+      }
+      
+      .nav-tagline {
+        font-size: 1rem;
+        margin-bottom: 0.8rem;
+      }
+      
+      .bio-nav .menu-btn {
+        padding: 0.6rem 0.8rem;
+        font-size: 0.9rem;
+      }
+      
+      .bio-text {
+        padding: 1.5rem;
+      }
+      
+      .page-title {
+        font-size: 2.5rem;
+      }
+      
+      .container {
+        padding: 3vh 3vw;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Loader and overlays -->
+  <div id="glitch-loader">
+    <div id="crt-noise-loader"></div>
+    <div class="crt-overlay"></div>
+    <div class="logo-flicker">
+      <img id="loader-logo" src="assets/logos/main-logo.png" alt="Band Logo" />
+    </div>
+  </div>
+  <div id="crt-noise-overlay"></div>
+
+  <!-- CRT Frame and Scanlines -->
+  <div class="crt-frame">
+    <div class="crt-corner tl"></div>
+    <div class="crt-corner tr"></div>
+    <div class="crt-corner bl"></div>
+    <div class="crt-corner br"></div>
+  </div>
+  <div class="crt-scanlines"></div>
+  <div id="crt-collapse"></div>
+
+  <main class="container" style="display:none;">
+    <section class="bio-content">
+      <div class="bio-layout">
+        <div class="band-image">
+          <img src="assets/images/band.jpg" alt="Pineapple Bandits Band Photo" />
+          <nav class="bio-nav" aria-label="Main menu">
+            <div class="nav-tagline">Main Menu</div>
+            <ul>
+              <li><a href="index.html" class="menu-btn">Home</a></li>
+              <li><a href="music.html" class="menu-btn">Music</a></li>
+              <li><a href="tour.html" class="menu-btn">Tour</a></li>
+              <li><a href="merch.html" class="menu-btn">Merch</a></li>
+              <li><a href="contact.html" class="menu-btn">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div class="bio-text">
+          <h1 class="page-title glitch-text" data-text="Bio">Bio</h1>
+          <p class="intro-text">
+            Pineapple Bandits are what happens when four musicians get tired of polite music. Based in Sheffield and spiritually located somewhere between Corporation and an existential crisis, they make alt-rock for people who want to feel slightly attacked, but in a good way.
+          </p>
           <div class="bio-details">
             <h2>Band Members</h2>
             <ul>
