@@ -119,20 +119,26 @@
     
     .crt-scanlines {
       z-index: 10103 !important; /* Above dust */
+      opacity: 0.8 !important; /* Make scanlines more visible */
     }
     
     .crt-frame {
       z-index: 10104 !important; /* Above scanlines */
     }
     
-    /* Ensure loader works properly */
+    /* Fix loader to show green noise background */
     #glitch-loader {
       z-index: 9999 !important; /* Below green noise */
-      background: transparent !important; /* Remove white background */
+      background: transparent !important; /* Remove white background completely */
     }
     
     #loader-logo {
       z-index: 10001 !important; /* Above green noise */
+    }
+    
+    /* Override the main CSS loader background */
+    body #glitch-loader {
+      background: transparent !important;
     }
     
     /* Responsive design */

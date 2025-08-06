@@ -75,7 +75,7 @@ a, a:visited {
 .crt-dust {
   position: fixed;
   pointer-events: none;
-  z-index: 101;
+  z-index: 10001;
   top: 0; left: 0;
   width: 100vw;
   height: 100vh;
@@ -87,7 +87,7 @@ a, a:visited {
 .crt-border {
   position: fixed;
   pointer-events: none;
-  z-index: 102;
+  z-index: 10002;
   top: 0; left: 0;
   width: 100vw;
   height: 100vh;
@@ -108,7 +108,7 @@ a, a:visited {
       transparent 1.5px,
       transparent 4px
     );
-  opacity: 0.58;
+  opacity: 1;
   mix-blend-mode: lighten;
   border-radius: 38px;
   overflow: hidden;
