@@ -87,7 +87,7 @@ a, a:visited {
 .crt-border {
   position: fixed;
   pointer-events: none;
-  z-index: 10002;
+  z-index: 10010;
   top: 0; left: 0;
   width: 100vw;
   height: 100vh;
@@ -108,7 +108,7 @@ a, a:visited {
       transparent 1.5px,
       transparent 4px
     );
-  opacity: 0.8;
+  opacity: 0.2;
   mix-blend-mode: multiply;
   border-radius: 38px;
   overflow: hidden;
