@@ -3,7 +3,60 @@
 <head>
   <meta charset="UTF-8">
   <title>Bio | Pineapple Bandits</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel    .crt-frame {
+      z-index: 10210 !important; /* Above scanlines */
+    }
+    
+    /* Bio navigation styles */
+    .bio-nav {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background: rgba(0, 0, 0, 0.7);
+      border: 2px solid #00ff41;
+      border-radius: 8px;
+      backdrop-filter: blur(5px);
+    }
+    
+    .nav-tagline {
+      color: #00ff41;
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-shadow: 0 0 8px #00ff41;
+    }
+    
+    .bio-nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .bio-nav li {
+      margin-bottom: 0.8rem;
+    }
+    
+    .bio-nav .menu-btn {
+      display: block;
+      color: #00ff41;
+      text-decoration: none;
+      padding: 0.8rem 1rem;
+      border: 1px solid #00ff41;
+      background: transparent;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-shadow: 0 0 4px #00ff41;
+    }
+    
+    .bio-nav .menu-btn:hover {
+      background: #00ff41;
+      color: #000;
+      text-shadow: none;
+      box-shadow: 0 0 15px #00ff41;
+    }tylesheet" href="assets/css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&display=swap" rel="stylesheet">
   <style>
     /* Bio page specific styles */
@@ -132,6 +185,21 @@
         align-self: center;
       }
       
+      .bio-nav {
+        margin-top: 1.5rem;
+        padding: 1rem;
+      }
+      
+      .nav-tagline {
+        font-size: 1rem;
+        margin-bottom: 0.8rem;
+      }
+      
+      .bio-nav .menu-btn {
+        padding: 0.6rem 0.8rem;
+        font-size: 0.9rem;
+      }
+      
       .bio-text {
         padding: 1.5rem;
       }
@@ -172,6 +240,16 @@
       <div class="bio-layout">
         <div class="band-image">
           <img src="assets/images/band.jpg" alt="Pineapple Bandits Band Photo" />
+          <nav class="bio-nav" aria-label="Main menu">
+            <div class="nav-tagline">Main Menu</div>
+            <ul>
+              <li><a href="index.html" class="menu-btn">Home</a></li>
+              <li><a href="music.html" class="menu-btn">Music</a></li>
+              <li><a href="tour.html" class="menu-btn">Tour</a></li>
+              <li><a href="merch.html" class="menu-btn">Merch</a></li>
+              <li><a href="contact.html" class="menu-btn">Contact</a></li>
+            </ul>
+          </nav>
         </div>
         <div class="bio-text">
           <h1 class="page-title glitch-text" data-text="Bio">Bio</h1>
