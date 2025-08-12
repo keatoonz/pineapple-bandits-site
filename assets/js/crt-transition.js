@@ -1,4 +1,5 @@
-document.querySelectorAll('.ps1-nav .menu-btn').forEach(btn => {
+// Bind CRT collapse to both main menu buttons on index and bio page nav
+document.querySelectorAll('.ps1-nav .menu-btn, .bio-nav .menu-btn').forEach(btn => {
   btn.addEventListener('click', function(e) {
     e.preventDefault();
 
@@ -14,6 +15,9 @@ document.querySelectorAll('.ps1-nav .menu-btn').forEach(btn => {
 
     // Hide main content (logo and nav) immediately
     if (mainContent) mainContent.style.display = 'none';
+  // Prevent scroll during transition
+  document.body.classList.add('noscroll');
+  document.documentElement.classList.add('noscroll');
 
     // Hide pink, show green loader
     if (pinkNoise) pinkNoise.style.display = 'none';

@@ -7,6 +7,34 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    /* Page layout to match bio.html */
+    body {
+      overflow: auto !important; /* Ensure page is scrollable */
+      height: auto !important;
+    }
+    html, body { overflow: auto !important; }
+    main.container {
+      min-height: 100vh;
+      padding: 7vh 5vw;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      background: none;
+      z-index: 10000; /* Above pink noise */
+    }
+    .page-wrap { width: 100%; max-width: 1200px; margin: 0 auto; }
+    .page-title {
+      color: #00ff41; font-size: 3rem; margin-bottom: 2rem;
+      text-shadow: 0 0 10px #00ff41; font-weight: bold;
+    }
+    .link-out-text { color: #fff; font-size: 1.2rem; margin-bottom: 1.2rem; }
+    .merch-btn {
+      display: inline-block; color: #000; background: #00ff41; border: 2px solid #00ff41;
+      padding: 0.8rem 1.2rem; text-decoration: none; font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase; box-shadow: 0 0 12px #00ff41; transition: filter .2s ease;
+    }
+    .merch-btn:hover { filter: brightness(0.9); }
+
     /* Override CRT effects z-index ordering */
     #crt-noise-overlay {
       z-index: 9998 !important; /* Below content - pink noise after loader */
@@ -28,12 +56,12 @@
 <body class="noscroll">
   <!-- Loader and overlays -->
   <div id="glitch-loader">
+    <div id="crt-noise-loader"></div>
     <div class="crt-overlay"></div>
     <div class="logo-flicker">
       <img id="loader-logo" src="assets/logos/main-logo.png" alt="Band Logo" />
     </div>
   </div>
-  <div id="crt-noise-loader"></div>
   <div id="crt-noise-overlay"></div>
 
   <!-- CRT Frame and Scanlines -->
@@ -60,7 +88,7 @@
       </nav>
     </div>
     <section class="section merch-section">
-      <div class="container">
+      <div class="page-wrap">
         <h1 class="page-title glitch-text" data-text="Merch">Merch</h1>
         <p class="link-out-text">Shop our merch via BigCartel:</p>
         <a href="https://pineapplebandits.bigcartel.com" class="merch-btn glitch-text" target="_blank">Visit Store</a>

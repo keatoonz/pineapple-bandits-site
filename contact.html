@@ -7,6 +7,23 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    /* Page layout to match bio.html */
+    body { overflow: auto !important; height: auto !important; }
+    html, body { overflow: auto !important; }
+    main.container {
+      min-height: 100vh;
+      padding: 7vh 5vw;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      background: none;
+      z-index: 10000;
+    }
+    .page-wrap { width: 100%; max-width: 1200px; margin: 0 auto; }
+    .page-title { color: #00ff41; font-size: 3rem; margin-bottom: 1.2rem; text-shadow: 0 0 10px #00ff41; font-weight: bold; }
+    .intro-text { color: #fff; font-size: 1.2rem; margin-bottom: 1.2rem; }
+    .note-text { color: #fff; opacity: .85; }
+    .glitch-button { background:#00ff41; color:#000; border:2px solid #00ff41; font-weight:700; letter-spacing:1px; text-transform:uppercase; box-shadow:0 0 12px #00ff41; }
     /* Override CRT effects z-index ordering */
     #crt-noise-overlay {
       z-index: 9998 !important; /* Below content - pink noise after loader */
@@ -28,12 +45,12 @@
 <body class="noscroll">
   <!-- Loader and overlays -->
   <div id="glitch-loader">
+    <div id="crt-noise-loader"></div>
     <div class="crt-overlay"></div>
     <div class="logo-flicker">
       <img id="loader-logo" src="assets/logos/main-logo.png" alt="Band Logo" />
     </div>
   </div>
-  <div id="crt-noise-loader"></div>
   <div id="crt-noise-overlay"></div>
 
   <!-- CRT Frame and Scanlines -->
@@ -60,7 +77,7 @@
       </nav>
     </div>
     <section class="section contact-section">
-      <div class="container">
+      <div class="page-wrap">
         <h1 class="page-title glitch-text" data-text="Contact">Contact</h1>
         <p class="intro-text">Reach out for bookings, press, or just to say hey. Subscribe to get updates first.</p>
         <div class="form-grid">

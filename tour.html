@@ -7,6 +7,26 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    /* Page layout to match bio.html */
+    body { overflow: auto !important; height: auto !important; }
+    html, body { overflow: auto !important; }
+    main.container {
+      min-height: 100vh;
+      padding: 7vh 5vw;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      background: none;
+      z-index: 10000;
+    }
+    .page-wrap { width: 100%; max-width: 1200px; margin: 0 auto; }
+    .page-title { color: #00ff41; font-size: 3rem; margin-bottom: 1.2rem; text-shadow: 0 0 10px #00ff41; font-weight: bold; }
+    .intro-text { color: #fff; font-size: 1.2rem; margin-bottom: 1.2rem; }
+    .tour-table table { width: 100%; border-collapse: collapse; color: #fff; }
+    .tour-table th, .tour-table td { border-bottom: 1px solid #00ff41; padding: .8rem; text-align: left; }
+    .tour-table th { color: #00ff41; text-shadow: 0 0 6px #00ff41; }
+    .ticket-link { color: #00ff41; text-decoration: underline; }
+    .ticket-link:hover { color: #fff; text-shadow: 0 0 8px #00ff41; }
     /* Override CRT effects z-index ordering */
     #crt-noise-overlay {
       z-index: 9998 !important; /* Below content - pink noise after loader */
@@ -28,12 +48,12 @@
 <body class="noscroll">
   <!-- Loader and overlays -->
   <div id="glitch-loader">
+    <div id="crt-noise-loader"></div>
     <div class="crt-overlay"></div>
     <div class="logo-flicker">
       <img id="loader-logo" src="assets/logos/main-logo.png" alt="Band Logo" />
     </div>
   </div>
-  <div id="crt-noise-loader"></div>
   <div id="crt-noise-overlay"></div>
 
   <!-- CRT Frame and Scanlines -->
@@ -60,7 +80,7 @@
       </nav>
     </div>
     <section class="section tour-section">
-      <div class="container">
+      <div class="page-wrap">
         <h1 class="page-title glitch-text" data-text="Tour">Tour</h1>
         <p class="intro-text">Catch Pineapple Bandits live — mosh early, mosh often.</p>
         <div class="tour-table">
