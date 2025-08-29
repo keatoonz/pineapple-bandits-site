@@ -139,7 +139,8 @@ a, a:visited {
 #crt-collapse {
   position: fixed;
   left: 0; top: 0; width: 100vw; height: 100vh;
-  z-index: 20000;
+  /* Below CRT border/corners (10010/10210), above scanlines/dust/content */
+  z-index: 10005;
   pointer-events: none;
   background: #fff;
   opacity: 0;
