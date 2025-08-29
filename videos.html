@@ -21,7 +21,12 @@
     }
     .page-wrap { width: 100%; max-width: 1200px; margin: 0 auto; }
     .page-title { color: #00ff41; font-size: 3rem; margin-bottom: 2rem; text-shadow: 0 0 10px #00ff41; font-weight: bold; }
-    .linktree-intro { color: #fff; font-size: 1.2rem; margin-bottom: 1.2rem; }
+  .linktree-intro { color: #fff; font-size: 1.2rem; margin-bottom: 1.2rem; }
+  /* Video grid and card */
+  .music-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+  .music-card { width: 100%; max-width: 800px; }
+  .video-embed { position: relative; width: 100%; aspect-ratio: 16/9; background: #000; border: 2px solid #00ff41; border-radius: 12px; overflow: hidden; box-shadow: 0 0 20px rgba(0,255,65,0.3); }
+  .video-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
     .linktree-btn { display:inline-block; color:#000; background:#00ff41; border:2px solid #00ff41; padding:.8rem 1.2rem; text-decoration:none; font-weight:700; letter-spacing:1px; text-transform:uppercase; box-shadow:0 0 12px #00ff41; transition: filter .2s; }
     .linktree-btn:hover { filter: brightness(.9); }
     /* Overlay ordering */
@@ -75,16 +80,15 @@
         <p class="linktree-intro">Watch our latest videos. More coming soon.</p>
         <div class="music-grid">
           <div class="music-card">
-            <iframe
-              width="100%"
-              height="315"
-              src="https://www.youtube.com/embed/QUQXUC75w0g?si=Ydvxdwc7kssGJ8t-"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen>
-            </iframe>
+            <div class="video-embed">
+              <iframe
+                src="https://www.youtube.com/embed/QUQXUC75w0g?si=Ydvxdwc7kssGJ8t-"
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen>
+              </iframe>
+            </div>
             <h3 class="track-title">Filthy Animal</h3>
           </div>
         </div>
