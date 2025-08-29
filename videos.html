@@ -2,16 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Merch | Pineapple Bandits</title>
+  <title>Videos | Pineapple Bandits</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="assets/css/style.css">
   <link href="https://fonts.googleapis.com/css?family=Girassol&display=swap" rel="stylesheet">
   <style>
     /* Page layout to match bio.html */
-    body {
-      overflow: auto !important; /* Ensure page is scrollable */
-      height: auto !important;
-    }
+    body { overflow: auto !important; height: auto !important; }
     html, body { overflow: auto !important; }
     main.container {
       min-height: 100vh;
@@ -20,38 +17,22 @@
       align-items: flex-start;
       justify-content: center;
       background: none;
-      z-index: 10000; /* Above pink noise */
+      z-index: 10000;
     }
     .page-wrap { width: 100%; max-width: 1200px; margin: 0 auto; }
-    .page-title {
-      color: #00ff41; font-size: 3rem; margin-bottom: 2rem;
-      text-shadow: 0 0 10px #00ff41; font-weight: bold;
-    }
-    .link-out-text { color: #fff; font-size: 1.2rem; margin-bottom: 1.2rem; }
-    .merch-btn {
-      display: inline-block; color: #000; background: #00ff41; border: 2px solid #00ff41;
-      padding: 0.8rem 1.2rem; text-decoration: none; font-weight: 700; letter-spacing: 1px;
-      text-transform: uppercase; box-shadow: 0 0 12px #00ff41; transition: filter .2s ease;
-    }
-    .merch-btn:hover { filter: brightness(0.9); }
-
-    /* Override CRT effects z-index ordering */
-    #crt-noise-overlay {
-      z-index: 9998 !important; /* Below content - pink noise after loader */
-    }
-    
-    .crt-dust {
-      z-index: 10001 !important; /* Above content */
-    }
-    
-    .crt-scanlines {
-      z-index: 10002 !important; /* Above dust */
-    }
-    
-    .crt-frame {
-      z-index: 10210 !important; /* Above scanlines */
-    }
+    .page-title { color: #00ff41; font-size: 3rem; margin-bottom: 2rem; text-shadow: 0 0 10px #00ff41; font-weight: bold; }
+    .linktree-intro { color: #fff; font-size: 1.2rem; margin-bottom: 1.2rem; }
+    .linktree-btn { display:inline-block; color:#000; background:#00ff41; border:2px solid #00ff41; padding:.8rem 1.2rem; text-decoration:none; font-weight:700; letter-spacing:1px; text-transform:uppercase; box-shadow:0 0 12px #00ff41; transition: filter .2s; }
+    .linktree-btn:hover { filter: brightness(.9); }
+    /* Overlay ordering */
+    #crt-noise-overlay { z-index: 9998 !important; }
+    .crt-dust { z-index: 10001 !important; }
+    .crt-scanlines { z-index: 10002 !important; }
+    .crt-frame { z-index: 10210 !important; }
   </style>
+  <meta name="description" content="Watch Pineapple Bandits official music videos.">
+  <meta property="og:title" content="Pineapple Bandits — Videos">
+  <meta property="og:type" content="website">
 </head>
 <body class="noscroll">
   <!-- Loader and overlays -->
@@ -81,30 +62,30 @@
         <ul>
           <li><a href="index.html" class="menu-btn">Home</a></li>
           <li><a href="bio.html" class="menu-btn">Bio</a></li>
-          <li><a href="videos.html" class="menu-btn">Videos</a></li>
           <li><a href="music.html" class="menu-btn">Music</a></li>
           <li><a href="tour.html" class="menu-btn">Tour</a></li>
+          <li><a href="merch.html" class="menu-btn">Merch</a></li>
           <li><a href="contact.html" class="menu-btn">Contact</a></li>
         </ul>
       </nav>
     </div>
-    <section class="section merch-section">
+    <section class="section videos-section">
       <div class="page-wrap">
-        <h1 class="page-title glitch-text" data-text="Merch">Merch</h1>
-        <p class="link-out-text">Shop our merch via BigCartel:</p>
-        <a href="https://pineapplebandits.bigcartel.com" class="merch-btn glitch-text" target="_blank">Visit Store</a>
-        <div class="merch-grid">
-          <div class="merch-card">
-            <img src="assets/images/placeholder-shirt1.png" alt="T-shirt Placeholder">
-            <h3 class="product-title">Logo Tee</h3>
-          </div>
-          <div class="merch-card">
-            <img src="assets/images/placeholder-hoodie1.png" alt="Hoodie Placeholder">
-            <h3 class="product-title">Distorted Hoodie</h3>
-          </div>
-          <div class="merch-card">
-            <img src="assets/images/placeholder-hat1.png" alt="Cap Placeholder">
-            <h3 class="product-title">Pineapple Cap</h3>
+        <h1 class="page-title glitch-text" data-text="Videos">Videos</h1>
+        <p class="linktree-intro">Watch our latest videos. More coming soon.</p>
+        <div class="music-grid">
+          <div class="music-card">
+            <iframe
+              width="100%"
+              height="315"
+              src="https://www.youtube.com/embed/QUQXUC75w0g?si=Ydvxdwc7kssGJ8t-"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen>
+            </iframe>
+            <h3 class="track-title">Filthy Animal</h3>
           </div>
         </div>
       </div>

@@ -21,9 +21,22 @@
     }
     .page-wrap { width: 100%; max-width: 1200px; margin: 0 auto; }
     .page-title { color: #00ff41; font-size: 3rem; margin-bottom: 2rem; text-shadow: 0 0 10px #00ff41; font-weight: bold; }
-    .linktree-intro { color: #fff; font-size: 1.2rem; margin-bottom: 1.2rem; }
-    .linktree-btn { display:inline-block; color:#000; background:#00ff41; border:2px solid #00ff41; padding:.8rem 1.2rem; text-decoration:none; font-weight:700; letter-spacing:1px; text-transform:uppercase; box-shadow:0 0 12px #00ff41; transition: filter .2s; }
-    .linktree-btn:hover { filter: brightness(.9); }
+    .music-card-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+    .art-card {
+      position: relative; width: 100%; max-width: 520px; aspect-ratio: 1/1; margin: 0; overflow: hidden;
+      border: 2px solid #00ff41; border-radius: 12px; box-shadow: 0 0 20px rgba(0,255,65,0.3);
+    }
+    .art-card img { width: 100%; height: 100%; object-fit: cover; transition: transform .25s ease, opacity .25s ease; display: block; }
+    .art-overlay {
+      position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
+      background: rgba(0,0,0,0.6); opacity: 0; transition: opacity .25s ease; text-align: center; padding: 1rem;
+    }
+    .art-title { color: #00ff41; font-size: 1.3rem; letter-spacing: 1px; margin-bottom: .4rem; text-shadow: 0 0 8px #00ff41; text-transform: uppercase; }
+    .art-date { color: #fff; font-size: 1rem; margin-bottom: .9rem; opacity: .95; }
+    .listen-btn { display:inline-block; color:#000; background:#00ff41; border:2px solid #00ff41; padding:.6rem 1rem; text-decoration:none; font-weight:700; letter-spacing:1px; text-transform:uppercase; box-shadow:0 0 12px #00ff41; transition: filter .2s; }
+    .listen-btn:hover { filter: brightness(.9); }
+    .art-card:hover img { transform: scale(.96); opacity: .85; }
+    .art-card:hover .art-overlay { opacity: 1; }
     /* Override CRT effects z-index ordering */
     #crt-noise-overlay {
       z-index: 9998 !important; /* Below content - pink noise after loader */
@@ -70,6 +83,7 @@
         <ul>
           <li><a href="index.html" class="menu-btn">Home</a></li>
           <li><a href="bio.html" class="menu-btn">Bio</a></li>
+          <li><a href="videos.html" class="menu-btn">Videos</a></li>
           <li><a href="tour.html" class="menu-btn">Tour</a></li>
           <li><a href="merch.html" class="menu-btn">Merch</a></li>
           <li><a href="contact.html" class="menu-btn">Contact</a></li>
@@ -79,21 +93,15 @@
     <section class="section music-section">
       <div class="page-wrap">
         <h1 class="page-title glitch-text" data-text="Music">Music</h1>
-        <p class="linktree-intro">Stream our music on your platform of choice:</p>
-        <a href="https://linktr.ee/pineapplebandits" class="linktree-btn glitch-text" target="_blank">Go to Linktree</a>
-        <div class="music-grid">
-          <div class="music-card">
-            <iframe width="100%" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
-            <h3 class="track-title">Track 01 - Placeholder</h3>
-          </div>
-          <div class="music-card">
-            <iframe width="100%" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
-            <h3 class="track-title">Track 02 - Placeholder</h3>
-          </div>
-          <div class="music-card">
-            <iframe width="100%" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
-            <h3 class="track-title">Track 03 - Placeholder</h3>
-          </div>
+        <div class="music-card-grid">
+          <figure class="art-card">
+            <img src="assets/images/filthy-animal.jpg" alt="Filthy Animal single artwork" />
+            <figcaption class="art-overlay">
+              <div class="art-title">Filthy Animal</div>
+              <div class="art-date">Released: 26 Aug 2025</div>
+              <a class="listen-btn" href="https://distrokid.com/hyperfollow/pineapplebandits/filthy-animal" target="_blank" rel="noopener">Listen</a>
+            </figcaption>
+          </figure>
         </div>
       </div>
     </section>
