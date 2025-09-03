@@ -193,7 +193,7 @@ a, a:visited {
   max-width: 420px;
   margin-right: 4vw;
   margin-left: 1vw;
-  z-index: 2;
+  z-index: 3;
 }
 
 /* --- Tagline --- */
@@ -228,6 +228,21 @@ a, a:visited {
   backdrop-filter: blur(5px);
   box-sizing: border-box;
   user-select: none;
+}
+
+/* Make bio nav match main nav look */
+.bio-nav {
+  align-self: flex-start;
+  width: 100%;
+  max-width: 420px;
+  padding: 1.5rem;
+  margin-top: 0;
+  margin-bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 8px;
+  border: 2px solid #00ff41;
+  backdrop-filter: blur(5px);
+  box-sizing: border-box;
 }
 
 .ps1-nav ul {
@@ -275,6 +290,40 @@ a, a:visited {
   border-color: #00ff41;
 }
 
+/* Bio menu buttons consistent with main */
+.bio-nav .menu-btn {
+  display: block;
+  width: 100%;
+  color: #00ff41;
+  text-decoration: none;
+  padding: 0.8rem 1rem;
+  border: 1px solid #00ff41;
+  background: transparent;
+  border-radius: 6px;
+  font-size: 3rem;
+  letter-spacing: 1px;
+  text-shadow: 0 0 4px #00ff41;
+  text-align: left;
+  text-transform: uppercase;
+  font-weight: bold;
+  box-sizing: border-box;
+  outline: none;
+  cursor: pointer;
+  margin-bottom: 0;
+  position: relative;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+.bio-nav .menu-btn:focus,
+.bio-nav .menu-btn:hover,
+.bio-nav li.selected .menu-btn {
+  background: #00ff41;
+  color: #000;
+  text-shadow: none;
+  box-shadow: 0 0 15px #00ff41;
+  border-color: #00ff41;
+}
+
 /* --- Main Logo Area --- */
 .main-logo-area {
   position: absolute;
@@ -284,7 +333,8 @@ a, a:visited {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 2;
+  z-index: 1;
+  pointer-events: none;
 }
 
 .logo {
@@ -306,7 +356,7 @@ a, a:visited {
   }
   .side-nav {
     align-items: center;
-    margin: 0 0 2vh 0;
+    margin: 6vh 0 2vh 0;
     min-width: unset;
     max-width: 95vw;
   }
@@ -380,6 +430,12 @@ a, a:visited {
     width: 100%;
     max-width: 100%;
     margin-top: var(--space-sm);
+  }
+
+  /* Hide entire nav when closed to avoid empty box */
+  .ps1-nav.is-collapsible:not(.open),
+  .bio-nav.is-collapsible:not(.open) {
+    display: none;
   }
 
   .ps1-nav.is-collapsible ul,
