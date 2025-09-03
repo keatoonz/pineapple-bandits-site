@@ -235,6 +235,7 @@ a, a:visited {
   align-self: flex-start;
   width: 100%;
   max-width: 420px;
+  min-width: 220px;
   padding: 1.5rem;
   margin-top: 0;
   margin-bottom: 0;
@@ -243,11 +244,22 @@ a, a:visited {
   border: 2px solid #00ff41;
   backdrop-filter: blur(5px);
   box-sizing: border-box;
+  user-select: none;
 }
 
 .ps1-nav ul {
   list-style: none;
   margin: 0; padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+/* Make bio nav list match main nav */
+.bio-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
@@ -314,6 +326,8 @@ a, a:visited {
   position: relative;
   transition: all 0.3s ease;
   white-space: nowrap;
+  overflow: visible;
+  text-overflow: unset;
 }
 .bio-nav .menu-btn:focus,
 .bio-nav .menu-btn:hover,
@@ -389,6 +403,10 @@ a, a:visited {
     padding: 1rem;
   }
   .ps1-nav .menu-btn {
+    font-size: clamp(1rem, 4.6vw, 1.2rem);
+    padding: 0.7rem 0.9rem;
+  }
+  .bio-nav .menu-btn {
     font-size: clamp(1rem, 4.6vw, 1.2rem);
     padding: 0.7rem 0.9rem;
   }
