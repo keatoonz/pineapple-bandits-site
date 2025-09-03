@@ -82,7 +82,7 @@
       color: #00ff41;
       font-size: 1.8rem;
       margin: 2rem 0 1rem 0;
-      text-shadow: 0 0 8px #00ff41;
+  text-shadow: 0 0 8px #00ff41;
       border-bottom: 2px solid #00ff41;
       padding-bottom: 0.5rem;
     }
@@ -136,6 +136,10 @@
     
     /* Responsive design */
     @media (max-width: 900px) {
+  /* Tone down green glow on mobile */
+  .page-title { text-shadow: 0 0 4px #00ff41; }
+  .bio-details h2 { text-shadow: 0 0 3px #00ff41; }
+  .intro-text, .bio-details p, .bio-details li, .bio-details a { text-shadow: 0 0 2px #00ff41; }
       .bio-layout {
         flex-direction: column;
         gap: 2rem;
@@ -245,6 +249,7 @@
   <img class="crt-border" src="assets/images/border.png" alt="CRT border" draggable="false" />
 
   <script src="assets/js/crt-transition.js"></script>
+  <script src="assets/js/crt-safearea.js" defer></script>
   <script src="assets/js/loader-nav.js" defer></script>
   <script src="assets/js/mobile-nav.js" defer></script>
 </body>
