@@ -63,7 +63,8 @@
   <main class="container" style="display:none;">
     <div class="side-nav">
       <div class="tagline">Main Menu</div>
-      <nav class="ps1-nav" aria-label="Main menu">
+      <button class="mobile-nav-toggle" aria-expanded="false" aria-controls="main-menu">Menu</button>
+      <nav class="ps1-nav is-collapsible" aria-label="Main menu" id="main-menu">
         <ul>
           <li><a href="index.html" class="menu-btn">Home</a></li>
           <li><a href="bio.html" class="menu-btn">Bio</a></li>
@@ -81,7 +82,7 @@
         <div class="music-grid">
           <div class="music-card">
             <div class="video-embed">
-              <iframe
+              <iframe loading="lazy"
                 src="https://www.youtube.com/embed/QUQXUC75w0g?si=Ydvxdwc7kssGJ8t-"
                 title="YouTube video player"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -100,5 +101,6 @@
 
   <script src="assets/js/crt-transition.js"></script>
   <script src="assets/js/loader-nav.js" defer></script>
+  <script src="assets/js/mobile-nav.js" defer></script>
 </body>
 </html>

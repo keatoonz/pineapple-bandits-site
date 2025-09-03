@@ -69,7 +69,8 @@
   <main class="container" style="display:none;">
     <div class="side-nav">
       <div class="tagline">Main Menu</div>
-      <nav class="ps1-nav" aria-label="Main menu">
+      <button class="mobile-nav-toggle" aria-expanded="false" aria-controls="main-menu">Menu</button>
+      <nav class="ps1-nav is-collapsible" aria-label="Main menu" id="main-menu">
         <ul>
           <li><a href="index.html" class="menu-btn">Home</a></li>
           <li><a href="bio.html" class="menu-btn">Bio</a></li>
@@ -83,38 +84,10 @@
     <section class="section tour-section">
       <div class="page-wrap">
         <h1 class="page-title glitch-text" data-text="Tour">Tour</h1>
-        <p class="intro-text">Catch Pineapple Bandits live — mosh early, mosh often.</p>
-        <div class="tour-table">
-          <table>
-            <thead>
-              <tr>
-                <th>Date</th>
-                <th>City</th>
-                <th>Venue</th>
-                <th>Tickets</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>01 Sep 2025</td>
-                <td>Sheffield, UK</td>
-                <td>Corporation</td>
-                <td><a href="#" class="ticket-link">TBA</a></td>
-              </tr>
-              <tr>
-                <td>07 Sep 2025</td>
-                <td>Manchester, UK</td>
-                <td>Night & Day Cafe</td>
-                <td><a href="#" class="ticket-link">TBA</a></td>
-              </tr>
-              <tr>
-                <td>14 Sep 2025</td>
-                <td>Leeds, UK</td>
-                <td>The Key Club</td>
-                <td><a href="#" class="ticket-link">TBA</a></td>
-              </tr>
-            </tbody>
-          </table>
+        <p class="intro-text">Gigs TBA. Check back soon.</p>
+        <div class="no-gigs">
+          <p>Want to be first to know about new dates?</p>
+          <a href="contact.html" class="cta-btn">Join the newsletter</a>
         </div>
       </div>
     </section>
@@ -124,5 +97,6 @@
 
   <script src="assets/js/crt-transition.js"></script>
   <script src="assets/js/loader-nav.js" defer></script>
+  <script src="assets/js/mobile-nav.js" defer></script>
 </body>
 </html>

@@ -37,6 +37,10 @@
     .listen-btn:hover { filter: brightness(.9); }
     .art-card:hover img { transform: scale(.96); opacity: .85; }
     .art-card:hover .art-overlay { opacity: 1; }
+    @media (max-width: 600px) {
+      .art-overlay { opacity: 1; }
+      .art-card:hover img { transform: none; opacity: 1; }
+    }
     /* Override CRT effects z-index ordering */
     #crt-noise-overlay {
       z-index: 9998 !important; /* Below content - pink noise after loader */
@@ -79,7 +83,8 @@
   <main class="container" style="display:none;">
     <div class="side-nav">
       <div class="tagline">Main Menu</div>
-      <nav class="ps1-nav" aria-label="Main menu">
+      <button class="mobile-nav-toggle" aria-expanded="false" aria-controls="main-menu">Menu</button>
+      <nav class="ps1-nav is-collapsible" aria-label="Main menu" id="main-menu">
         <ul>
           <li><a href="index.html" class="menu-btn">Home</a></li>
           <li><a href="bio.html" class="menu-btn">Bio</a></li>
@@ -95,7 +100,7 @@
         <h1 class="page-title glitch-text" data-text="Music">Music</h1>
         <div class="music-card-grid">
           <figure class="art-card">
-            <img src="assets/images/filthy-animal.jpg" alt="Filthy Animal single artwork" />
+            <img src="assets/images/filthy-animal.jpg" alt="Filthy Animal single artwork" loading="lazy" decoding="async" />
             <figcaption class="art-overlay">
               <div class="art-title">Filthy Animal</div>
               <div class="art-date">Released: 26 Aug 2025</div>
@@ -111,5 +116,6 @@
 
   <script src="assets/js/crt-transition.js"></script>
   <script src="assets/js/loader-nav.js" defer></script>
+  <script src="assets/js/mobile-nav.js" defer></script>
 </body>
 </html>

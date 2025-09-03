@@ -56,7 +56,8 @@
  <main class="container" style="display:none;">
   <div class="side-nav">
     <div class="tagline">Main Menu</div>
-    <nav class="ps1-nav" aria-label="Main menu">
+    <button class="mobile-nav-toggle" aria-expanded="false" aria-controls="main-menu">Menu</button>
+    <nav class="ps1-nav is-collapsible" aria-label="Main menu" id="main-menu">
       <ul>
         <li><a href="bio.html" class="menu-btn">Bio</a></li>
   <li><a href="music.html" class="menu-btn">Music</a></li>
@@ -81,5 +82,6 @@
   <!-- CRT collapse transition on nav click -->
   <script src="assets/js/crt-transition.js"></script>
   <script src="assets/js/loader-nav.js" defer></script>
+  <script src="assets/js/mobile-nav.js" defer></script>
 </body>
 </html>

@@ -252,9 +252,10 @@
     <section class="bio-content">
       <div class="bio-layout">
         <div class="band-image">
-          <img src="assets/images/band.jpg" alt="Pineapple Bandits Band Photo" />
-          <nav class="bio-nav" aria-label="Main menu">
+          <img src="assets/images/band.jpg" alt="Pineapple Bandits Band Photo" loading="lazy" decoding="async" />
+          <nav class="bio-nav is-collapsible" aria-label="Main menu" id="bio-menu">
             <div class="nav-tagline">Main Menu</div>
+            <button class="mobile-nav-toggle" aria-expanded="false" aria-controls="bio-menu">Menu</button>
             <ul>
               <li><a href="index.html" class="menu-btn">Home</a></li>
               <li><a href="music.html" class="menu-btn">Music</a></li>
@@ -313,5 +314,6 @@
 
   <script src="assets/js/crt-transition.js"></script>
   <script src="assets/js/loader-nav.js" defer></script>
+  <script src="assets/js/mobile-nav.js" defer></script>
 </body>
 </html>

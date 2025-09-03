@@ -6,6 +6,15 @@ html, body {
   height: 100%;
   font-family: 'Girassol', serif !important;
 }
+/* Fluid type + spacing helpers */
+:root {
+  --space-xs: clamp(6px, 1.2vw, 10px);
+  --space-sm: clamp(10px, 2vw, 16px);
+  --space-md: clamp(16px, 3vw, 24px);
+  --space-lg: clamp(20px, 4vw, 40px);
+  --fs-body: clamp(15px, 3.6vw, 18px);
+  --fs-h1: clamp(28px, 6vw, 48px);
+}
 html.noscroll, body.noscroll {
   overflow: hidden !important;
   position: fixed;
@@ -293,7 +302,7 @@ a, a:visited {
   .container {
     flex-direction: column;
     align-items: stretch;
-    padding: 3vh 3vw;
+  padding: clamp(16px, 3vh, 32px) clamp(16px, 5vw, 40px);
   }
   .side-nav {
     align-items: center;
@@ -317,7 +326,7 @@ a, a:visited {
     margin: 0;
   }
   .tagline {
-    font-size: 1.5rem;
+    font-size: clamp(1.1rem, 4.2vw, 1.5rem);
     text-align: center;
     max-width: 98vw;
     margin-bottom: 1.2rem;
@@ -327,8 +336,8 @@ a, a:visited {
     padding: 1rem;
   }
   .ps1-nav .menu-btn {
-    font-size: 1.7rem;
-    padding: 0.6rem 0.8rem;
+    font-size: clamp(1rem, 4.6vw, 1.2rem);
+    padding: 0.7rem 0.9rem;
   }
   .ps1-nav ul {
     gap: 0.8rem;
@@ -336,3 +345,100 @@ a, a:visited {
 }
 
 /* --- End of Main Layout Cleanup --- */
+
+/* --- Mobile Dropdown Nav (collapsible) --- */
+.mobile-nav-toggle {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  /* Hide tagline to avoid duplication with Menu button */
+  .tagline { display: none; }
+  .nav-tagline { display: none; }
+
+  .mobile-nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.6rem;
+    width: 100%;
+    padding: 0.7rem 1rem;
+    border: 2px solid #00ff41;
+    background: rgba(0,0,0,0.8);
+    color: #00ff41;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,255,65,0.35);
+    cursor: pointer;
+  }
+  .mobile-nav-toggle:focus { outline: 2px solid #00ff41; outline-offset: 2px; }
+
+  /* Make nav collapsible on mobile */
+  .ps1-nav, .bio-nav {
+    width: 100%;
+    max-width: 100%;
+    margin-top: var(--space-sm);
+  }
+
+  .ps1-nav.is-collapsible ul,
+  .bio-nav.is-collapsible ul {
+    display: none;
+  }
+  .ps1-nav.is-collapsible.open ul,
+  .bio-nav.is-collapsible.open ul {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Larger tap targets */
+  .ps1-nav .menu-btn, .bio-nav .menu-btn {
+    min-height: 44px;
+  }
+}
+
+/* --- Reduce CRT intensity on small screens --- */
+@media (max-width: 600px) {
+  .crt-scanlines { opacity: 0.12; animation: none; }
+  .crt-dust { opacity: 0.12; }
+  /* Slightly reduce heavy blur on small screens */
+  .ps1-nav, .bio-nav { backdrop-filter: blur(3px); }
+}
+
+/* --- Motion accessibility --- */
+@media (prefers-reduced-motion: reduce) {
+  .crt-scanlines { animation: none; }
+  #crt-collapse.collapse-anim { animation-duration: 0.01ms !important; }
+}
+
+/* --- Tour: No-gigs notice & CTA --- */
+.no-gigs {
+  border: 2px solid #00ff41;
+  border-radius: 12px;
+  padding: var(--space-md);
+  background: rgba(0,0,0,0.65);
+  box-shadow: 0 0 16px rgba(0,255,65,0.25);
+  margin-top: var(--space-md);
+}
+.no-gigs p { color: #fff; margin: 0 0 var(--space-sm) 0; }
+.cta-btn {
+  display: inline-block;
+  text-align: center;
+  width: auto;
+  max-width: 100%;
+  color: #000;
+  background: #00ff41;
+  border: 2px solid #00ff41;
+  padding: 0.7rem 1.1rem;
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 8px;
+  box-shadow: 0 0 12px #00ff41;
+}
+.cta-btn:hover { filter: brightness(0.9); }
+@media (max-width: 600px) {
+  .no-gigs { text-align: center; }
+}
