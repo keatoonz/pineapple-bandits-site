@@ -9,6 +9,7 @@
     btn.addEventListener('click', function(){
       const isOpen = nav.classList.toggle('open');
       btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      document.body.classList.toggle('menu-open', isOpen);
     });
   }
 
@@ -33,6 +34,7 @@
         if (nav && btn) {
           nav.classList.remove('open');
           btn.setAttribute('aria-expanded', 'false');
+          document.body.classList.remove('menu-open');
         }
       }
     });

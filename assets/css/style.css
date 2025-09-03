@@ -301,6 +301,7 @@ a, a:visited {
   background: transparent;
   border-radius: 6px;
   font-size: 3rem;
+  font-family: 'Girassol', serif;
   letter-spacing: 1px;
   text-shadow: 0 0 4px #00ff41;
   text-align: left;
@@ -353,6 +354,8 @@ a, a:visited {
     flex-direction: column;
     align-items: stretch;
   padding: clamp(16px, 3vh, 32px) clamp(16px, 5vw, 40px);
+  /* Prevent bottom content being cut off by fixed CRT border on iPhone */
+  padding-bottom: calc(clamp(16px, 3vh, 32px) + env(safe-area-inset-bottom) + 48px);
   }
   .side-nav {
     align-items: center;
@@ -393,6 +396,9 @@ a, a:visited {
     gap: 0.8rem;
   }
 }
+
+/* When mobile menu is open, hide centered logo visually */
+body.menu-open .main-logo-area { opacity: 0; visibility: hidden; }
 
 /* --- End of Main Layout Cleanup --- */
 
